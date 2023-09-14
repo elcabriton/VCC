@@ -2,111 +2,104 @@ library ieee;
 use ieee.std_logic_1164.all;  
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-
-entity VCC is
+--versatile video conding(VVC) 
+entity VVC is
     port(
         clock : in std_logic;
         reset : in std_logic;
-        num: in std_logic_vector(15 downto 0);--escolher o valor para passar para algum dos regs( a escolha e feita no mux)
-        Select : in STD_LOGIC_VECTOR(3 downto 0);   -- Entrada de seleção (4 bits para 16 opções)
-        sig:out std_logic;
-        gt1:out  std_logic;
-        par:out  std_logic;
-        gt3: out std_logic;
-        REM: out std_logic;
-
+        coef : in std_logic_vector(3 downto 0);--qual parte da matriz usaremos(qual posicao vamos usar)
+        input: in std_logic_vector(15 downto 0);--qual reg vamos ler(coefff)
+        input_m: in std_logic_vector(1 downto 0);--escolher oq vamos passar na conta do "m"
         );
-end VCC;
+end VVC;
 
-architecture behavior of VCC is
+architecture behavior of VVC is
     --(SABER O NOME DESSES REGS)
-    signal reg: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    signal ACC: std_logic_vector(15 downto 0);
-    
 
-    --flags
+--15 14 13 12 
+--11 10 9  8
+--7  6  5  4
+--3  2  1  0
+
+   signal reg0 : std_logic_vector(15 downto 0);
+   signal reg1 : std_logic_vector(15 downto 0);
+   signal reg2 : std_logic_vector(15 downto 0);
+   signal reg3 : std_logic_vector(15 downto 0);
+   signal reg4 : std_logic_vector(15 downto 0);
+   signal reg5 : std_logic_vector(15 downto 0);
+   signal reg6 : std_logic_vector(15 downto 0);
+   signal reg7 : std_logic_vector(15 downto 0);
+   signal reg8 : std_logic_vector(15 downto 0);
+   signal reg9 : std_logic_vector(15 downto 0);
+   signal reg10 : std_logic_vector(15 downto 0);
+   signal reg11 : std_logic_vector(15 downto 0);
+   signal reg12 : std_logic_vector(15 downto 0);
+   signal reg13 : std_logic_vector(15 downto 0);
+   signal reg14 : std_logic_vector(15 downto 0);
+   signal reg15 : std_logic_vector(15 downto 0);
+
+
+
+   --SIGNAL MUX DO "M"
+   signal mux: std_logic_vector(1 downto 0);
+
+
+   --mux que passa para setarmos o valor do reg
+    -- signal mux_selector : std_logic_vector(15 downto 0);
+    -- signal mux_0: std_logic_vector(15 downto 0);
+    -- signal mux_1: std_logic_vector(15 downto 0);
+    -- signal mux_2: std_logic_vector(15 downto 0);
+    -- signal mux_3: std_logic_vector(15 downto 0);
+    -- signal mux_4: std_logic_vector(15 downto 0);
+    -- signal mux_5: std_logic_vector(15 downto 0);
+    -- signal mux_6: std_logic_vector(15 downto 0);
+    -- signal mux_7: std_logic_vector(15 downto 0);
+    -- signal mux_8: std_logic_vector(15 downto 0);
+    -- signal mux_9: std_logic_vector(15 downto 0);
+    -- signal mux_10: std_logic_vector(15 downto 0);
+    -- signal mux_11: std_logic_vector(15 downto 0);
+    -- signal mux_12: std_logic_vector(15 downto 0);
+    -- signal mux_13: std_logic_vector(15 downto 0);
+    -- signal mux_14: std_logic_vector(15 downto 0);
+    -- signal mux_15: std_logic_vector(15 downto 0);
    
+   
+     
+   begin
     
 
+    --mux que passa para setarmos o valor do reg
+    mux_selector <= input;
 
-    signal Output_Mux: std_logic_vector(15 downto 0);--escolher o reg
-    
-    mux_reg <= Data_In(to_integer(unsigned(Select)));
-    
-    begin
-    process (Output_Mux, Select)
-    begin
-        case Select is
-            when "0000" =>
-                Output_Mux <= reg1;
-            when "0001" =>
-                Output_Mux <= reg2;
-            when "0010" =>
-                Output_Mux <= reg3;
-            when "0011" =>
-                Output_Mux <= reg4;
-            when "0100" =>
-                Output_Mux <= reg5;
-            when "0101" =>
-                Output_Mux <= reg6;
-            when "0110" =>
-                Output_Mux <= reg7;
-            when "0111" =>
-                Output_Mux <= reg8;
-            when "1000" =>
-                Output_Mux <= reg9;
-            when "1001" =>
-                Output_Mux <= reg10;
-            when "1010" =>
-                Output_Mux <= reg11;
-            when "1011" =>
-                Output_Mux <= reg11;
-            when "1100" =>
-                Output_Mux <= reg12;
-            when "1101" =>
-                Output_Mux <= reg13;
-            when "1110" =>
-                Output_Mux <= reg14;
-            when "1111" =>
-                Output_Mux <= reg15;
-    -- na subida do clock vamo setar o de uma entrada
+    reg0<=mux_selector when coef="0000";
+    reg1<=mux_selector when coef="0001";
+    reg2<=mux_selector when coef="0010";
+    reg3<=mux_selector when coef="0011";
+    reg4<=mux_selector when coef="0100";
+    reg5<=mux_selector when coef="0101";
+    reg6<=mux_selector when coef="0110";
+    reg7<=mux_selector when coef="0111";
+    reg8<=mux_selector when coef="1000";
+    reg9<=mux_selector when coef="1001";
+    reg10<=mux_selector when coef="1010";
+    reg11<=mux_selector when coef="1011";
+    reg12<=mux_selector when coef="1100";
+    reg13<=mux_selector when coef="1101";
+    reg14<=mux_selector when coef="1110";
+    reg15<=mux_selector when coef="1111";
+
+
+    --MUX DO "M"
+   
+    -- 0, sT < 7,
+    -- 1, 7 ≤ sT < 14,
+    -- 2, 14 ≤ sT < 28,
+    -- 3, sT ≥ 28,
+    --CONFIGURA O M "SO MUDAR O VALOR DE ST PARA SABER OQ VAI PASSAR"
+    mux_m <= "01" when sT < "00000111"
+    mux_m <= "10" when sT >= "00000111" and sT < "00001110"
+    mux_m <= "11" when sT >= "00001110" and sT < "00011100"
+
+
     process(clock)
-    if reset = '0' then
-        --colocar o valor deles aqui setar pra zero
-        elsif rising_edge(clock) then
-            if mux_reg /= "0000000000000000" then
-                sig <= '1';  -- Define sig como '1'
-                
-                if mux_reg > "0000000000000001" then
-                    gt1 <= '1';  -- Define gt1 como '1'
-                else
-                    gt1 <= '0';  -- Define gt1 como '0' se não for maior que 1
-                end if;
-                
-                -- PAR?????????
-                
-                if mux_reg > "0000000000000011" then
-                    gt3 <= '1';  -- Define gt3 como '1'
-                else
-                    gt3 <= '0';  -- Define gt3 como '0' se não for maior que 3
-                end if;
-                
-                --REM???????????
-
-                end if;
-
-
+    
