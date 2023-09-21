@@ -173,7 +173,15 @@ begin
 
                 end if;
 
+    --MUX DO "M"
+   
+    -- 0, sT < 7,
+    -- 1, 7 ≤ sT < 14,
+    -- 2, 14 ≤ sT < 28,
+    -- 3, sT ≥ 28,
+    --CONFIGURA O M "SO MUDAR O VALOR DE ST PARA SABER OQ VAI PASSAR"
                 -- mux_m <= "01" when sT < "00000111"
                 -- mux_m <= "10" when sT >= "00000111" and sT < "00001110"
                 -- mux_m <= "11" when sT >= "00001110" and sT < "00011100"
+                
 end Behavioral;
