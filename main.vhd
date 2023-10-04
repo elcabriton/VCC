@@ -7,43 +7,27 @@ entity Registradores16Bits is
     Port (
         clock : in STD_LOGIC;
         reset : in STD_LOGIC;
-        dados_in : in STD_LOGIC_VECTOR(15 downto 0);
+        --valores para o neighboor
+        escolha: in STD_LOGIC_VECTOR(3 downto 0);
         input_ : in STD_LOGIC_VECTOR(15 downto 0);--valor para atribuir a aqueles regs que precisam de neibor
-        enable : in STD_LOGIC;
         en_reg_neibor : in STD_LOGIC;
-        
     );
 end Registradores16Bits;
 
 architecture Behavioral of Registradores16Bits is
-    signal reg0 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg1 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg2 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg3 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg4 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg5 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg6 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg7 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg8 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg9 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg10 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg11 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg12 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg13 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg14 : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg15 : STD_LOGIC_VECTOR(15 downto 0);
-
-    signal contador : STD_LOGIC_VECTOR(3 downto 0);
-    signal contador_neibor : STD_LOGIC_VECTOR(3 downto 0);--contador para os regs que precisam de neibor
-
-
         --RERGS QUE PRECISA DE NEIBOR 7,8,9,10,11,12,13,14,15
 
             --15 13 10 6 
             --14 11 7 3
             --12 8 4 1
             --9 5 2 0
-
+    signal reg0_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg1_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg2_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg3_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg4_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg5_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg6_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg7_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg8_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg9_neibor : STD_LOGIC_VECTOR(15 downto 0);
@@ -53,9 +37,29 @@ architecture Behavioral of Registradores16Bits is
     signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    
+
+    -- regs dos M
+    signal regM0 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM1 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM2 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM3 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM4 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM5 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM6 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM7 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM8 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM9 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM10 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM11 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM12 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM13 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM14 : STD_LOGIC_VECTOR(15 downto 0);
+    signal regM15 : STD_LOGIC_VECTOR(15 downto 0);    
 
 
-begin
+
+begin   
     process(clock, reset)
     begin
         if reset = '1' then
@@ -75,103 +79,72 @@ begin
             reg13 <= (others => '0');
             reg14 <= (others => '0');
             reg15 <= (others => '0');
-        elsif rising_edge(clock) then
-            contador <= contador + 1;
-            if contador = 16 then
-                contador <= (others => '0');
-            end if;
-
-            contador_neibor <= contador_neibor + 1;
-            if contador_neibor = 16 then
-                contador_neibor <= (others => '0');
-            end if;
-
-
-            if enable = '1' then
-                if contador = 0 then
-                    reg0 <= dados_in;
-                elsif contador = 1 then
-                    reg1 <= dados_in;
-                elsif contador = 2 then
-                    reg2 <= dados_in;
-                elsif contador = 3 then
-                    reg3 <= dados_in;
-                elsif contador = 4 then
-                    reg4 <= dados_in;
-                elsif contador = 5 then
-                    reg5 <= dados_in;
-                elsif contador = 6 then
-                    reg6 <= dados_in;
-                elsif contador = 7 then
-                    reg7 <= dados_in;
-                elsif contador = 8 then
-                    reg8 <= dados_in;
-                elsif contador = 9 then
-                    reg9 <= dados_in;
-                elsif contador = 10 then
-                    reg10 <= dados_in;
-                elsif contador = 11 then
-                    reg11 <= dados_in;
-                elsif contador = 12 then
-                    reg12 <= dados_in;
-                elsif contador = 13 then
-                    reg13 <= dados_in;
-                elsif contador = 14 then
-                    reg14 <= dados_in;
-                elsif contador = 15 then
-                    reg15 <= dados_in;
-                end if;
-            end if;
-        end if;
-    end process;
-
         --15 13 10 6 
         --14 11 7 3
         --12 8 4 1
         --9 5 2 0
-    process(contador, contador_neibor,en_reg_neibor)
+        elsif rising_edge(clock) then
+            if escolha ="0000" then
+                reg0_neibor <= reg0_neibor+input_;
+            end if;
+            if escolha="0000" then
+                reg1_neibor <= reg1_neibor+input_;
+            end if;
+            if escolha="0000" then
+                reg2_neibor <= reg2_neibor+input_;
+            end if;
+            if escolha="0000" or escolha="0001" then
+                reg3_neibor <= reg3_neibor+input_;
+            end if;
+            if escolha="0001" or escolha="0010" or escolha="0000" then
+                reg4_neibor <= reg4_neibor+input_;
+            end if;
+            if escolha="0010" or escolha="0000" then
+                reg5_neibor <= reg5_neibor+input_;
+            end if;
+            if escolha="0011" or escolha="0001" then
+                reg6_neibor <= reg6_neibor+input_;
+            end if;
+            if escolha="0011" or escolha="0100" or escolha="0001" or escolha="0010" then
+                reg7_neibor <= reg7_neibor+input_;
+            end if;
+            if escolha="0100" or escolha="0010" or escolha="0101" or escolha="0001"then
+                reg8_neibor <= reg8_neibor+input_;
+
+            end if;
+            if escolha="0101" or escolha="0010" then
+                reg9_neibor <= reg9_neibor+input_;
+            end if;
+        --15 13 10 6 
+        --14 11 7 3
+        --12 8 4 1
+        --9 5 2 0
+            if escolha="0110" or escolha="0011" or escolha="0111" or escolha="0100" then
+                reg10_neibor <= reg10_neibor+input_;
+            end if;
+            if escolha="0111" or escolha="0100" or escolha="0101" or escolha="1000" or escolha="0011" then
+                reg11_neibor <= reg11_neibor+input_;
+            end if;
+            if escolha="1000" or escolha="0100" or escolha="0101" or escolha="1001" then
+                reg12_neibor <= reg12_neibor+input_;
+            end if;
+            if escolha="1011" or escolha="0111" or escolha="0110" or escolha="1010" or escolha="0111" or escolha="1000" then 
+                reg13_neibor <= reg13_neibor+input_;
+            end if;
+            if escolha="1011" or escolha="0111" or escolha="1000" or escolha="1100" or escolha="1001" then
+                reg14_neibor <= reg14_neibor+input_;
+            end if;
+            if escolha="1101" or escolha="1010" or escolha="1011" or escolha="1110" or escolha="1100" then
+                reg15_neibor <= reg15_neibor+input_;
+            end if;
+        end if;
+        
+        
+            
 
 
     
-            if rising_edge(en_reg_neibor)
-                if contador_neibor = 7 then
-                    if contador= 3||4||1||0 then-- mudar essa linha para case
-                        reg7_neibor <= input_+reg7_neibor;
-                    end if;
-                elsif contador_neibor = 8 then
-                    if contador= 2||4||1||5 then
-                        reg8_neibor <= input_+reg8_neibor;
-                    end if;
-                elsif contador_neibor = 9 then
-                    if contador= 5||2 then
-                        reg9_neibor <= input_+reg9_neibor;
-                    end if;
-                elsif contador_neibor = 10 then
-                    if contador= 6||3||7||4 then
-                        reg10_neibor <= input_+reg10_neibor;
-                    end if;
-                elsif contador_neibor = 11 then
-                    if contador= 7||3||8||4||5 then
-                        reg11_neibor <= input_+reg11_neibor;
-                    end if;
-                elsif contador_neibor = 12 then
-                    if contador= 8||4||9||5 then
-                        reg12_neibor <= input_+reg12_neibor;
-                    end if;
-                elsif contador_neibor = 13 then
-                    if contador= 7||11||10||6||8 then
-                        reg13_neibor <= input_+reg13_neibor;
-                    end if;
-                elsif contador_neibor = 14 then
-                    if contador= 8||12||11||7||9 then
-                        reg14_neibor <= input_+reg14_neibor;
-                    end if;
-                elsif contador_neibor = 15 then
-                    if contador= 11||13||10||14||12 then
-                        reg15_neibor <= input_+reg15_neibor;
-                    end if;
-
-                end if;
+            
 
     --MUX DO "M"
    
