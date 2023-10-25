@@ -59,6 +59,7 @@ architecture Behavioral of Registradores16Bits is
 
 
 
+
 begin   
     process(clock, reset)
     begin
@@ -138,23 +139,125 @@ begin
                 reg15_neibor <= reg15_neibor+input_;
             end if;
         end if;
+
+
         
         
+    end process;
+        
+        M0<=reg0_neibor;
+        M1<=reg1_neibor;
+        M2<=reg2_neibor;
+        M3<=reg3_neibor;
+        M4<=reg4_neibor;
+        M5<=reg5_neibor;
+        M6<=reg6_neibor;
+        M7<=reg7_neibor;
+        M8<=reg8_neibor;
+        M9<=reg9_neibor;
+        M10<=reg10_neibor;
+        M11<=reg11_neibor;
+        M12<=reg12_neibor;
+        M13<=reg13_neibor;
+        M14<=reg14_neibor;
+        M15<=reg15_neibor;
+    
+    
+
+                
             
 
 
     
             
 
-    --MUX DO "M"
+    
    
     -- 0, sT < 7,
     -- 1, 7 ≤ sT < 14,
     -- 2, 14 ≤ sT < 28,
     -- 3, sT ≥ 28,
-    --CONFIGURA O M "SO MUDAR O VALOR DE ST PARA SABER OQ VAI PASSAR"
-                -- mux_m <= "01" when sT < "00000111"
-                -- mux_m <= "10" when sT >= "00000111" and sT < "00001110"
-                -- mux_m <= "11" when sT >= "00001110" and sT < "00011100"
+    
+M0<='0' when reg0<"0000000000000111" else
+  '1' when reg0<="000000000000111" AND reg0<"0000000000001110" else   
+  "10" when reg0<="000000000001110" AND reg0<"0000000000011100" else  
+  "11" when reg0>="0000000000011100" else     
+  
+  
+M1<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else   
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else  
+"11" when reg0>="0000000000011100" else 
+
+M2<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M3<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M4<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M5<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M6<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M7<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M8<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M9<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M10<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M11<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M12<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M13<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M14<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" AND reg0<"0000000000001110" else
+"10" when reg0<="000000000001110" AND reg0<"0000000000011100" else
+"11" when reg0>="0000000000011100" else
+
+M15<='0' when reg0<"0000000000000111" else
+'1' when reg0<="000000000000111" else
+"10" when reg0<="000000000001110" else
+"11" when reg0>="0000000000011100" else
+
                 
 end Behavioral;
