@@ -11,11 +11,12 @@ entity Registradores16Bits is
         escolha: in STD_LOGIC_VECTOR(3 downto 0);
         input_ : in STD_LOGIC_VECTOR(15 downto 0);--valor para atribuir a aqueles regs que precisam de neibor
         en_reg_neibor : in STD_LOGIC;
+        sk : in STD_LOGIC_VECTOR(1 downto 0);
     );
 end Registradores16Bits;
 
 architecture Behavioral of Registradores16Bits is
-        
+        --RERGS QUE PRECISA DE NEIBOR 7,8,9,10,11,12,13,14,15
 
             --15 13 10 6 
             --14 11 7 3
@@ -37,37 +38,298 @@ architecture Behavioral of Registradores16Bits is
     signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0);
     signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0);
-
-    signal pos0_0 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_1 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_2 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_3 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_4 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_5 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_6 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_7 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_8 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_9 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_10 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_11 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_12 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_13 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_14 : STD_LOGIC_VECTOR(1 downto 0);
-    signal pos0_15 : STD_LOGIC_VECTOR(1 downto 0);
-
-
-
     
 
     -- regs dos M
-   
+    signal regM0 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM1 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM2 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM3 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM4 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM5 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM6 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM7 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM8 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM9 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM10 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM11 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM12 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM13 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM14 : STD_LOGIC_VECTOR(1 downto 0);
+    signal regM15 : STD_LOGIC_VECTOR1() downto 0);    
 
-       type M is array (0 to 15) of std_logic_vector(1 downto 0);
-    signal regM : M;
+    --POS0
+    signal pos0_0: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_1: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_2: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_3: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_4: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_5: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_6: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_7: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_8: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_9: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_10: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_11: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_12: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_13: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_14: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_15: STD_LOGIC_VECTOR(5 downto 0);
 
+    --deck absoluute level
+    signal deck_abs_level_0 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_1 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_2 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_3 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_4 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_5 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_6 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_7 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_8 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_9 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_10 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_11 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_12 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_13 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_14 : STD_LOGIC_VECTOR(15 downto 0);
+    signal deck_abs_level_15 : STD_LOGIC_VECTOR(15 downto 0);
+
+
+    type pos0_minor is array (0 to 3) of std_logic_vector(5 downto 0);
+    signal regpos0_minor : pos0_menor;
+    signal regpos0_maior : pos0_menor;
 
 
 begin   
+regpos0_menor(0) <= "00001";
+regpos0_menor(1) <= "00010";
+regpos0_menor(2) <= "00100";
+regpos0_menor(3) <= "01000";
+
+regpos1_maior(0) <= "00010";
+regpos1_maior(1) <= "00100";
+regpos1_maior(2) <= "01000";
+regpos1_maior(3) <= "10000";
+
+pos0_0<=regpos0_menor(0) when sk<"10" AND M0="00"else
+        regpos0_menor(1) when sk<"10" AND M0="01"else
+        regpos0_menor(2) when sk<"10" AND M0="10"else
+        regpos0_menor(3) when sk<"10" AND M0="11"else
+        regpos0_maior(0) when sk>="10" AND M0="00"else
+        regpos0_maior(1) when sk>="10" AND M0="01"else
+        regpos0_maior(2) when sk>="10" AND M0="10"else
+        regpos0_maior(3) when sk>="10" AND M0="11";
+
+pos0_1<=regpos0_menor(0) when sk<"10" AND M1="00"else
+        regpos0_menor(1) when sk<"10" AND M1="01"else
+        regpos0_menor(2) when sk<"10" AND M1="10"else
+        regpos0_menor(3) when sk<"10" AND M1="11"else
+        regpos0_maior(0) when sk>="10" AND M1="00"else
+        regpos0_maior(1) when sk>="10" AND M1="01"else
+        regpos0_maior(2) when sk>="10" AND M1="10"else
+        regpos0_maior(3) when sk>="10" AND M1="11";
+
+pos0_2<=regpos0_menor(0) when sk<"10" AND M2="00"else
+        regpos0_menor(1) when sk<"10" AND M2="01"else
+        regpos0_menor(2) when sk<"10" AND M2="10"else
+        regpos0_menor(3) when sk<"10" AND M2="11"else
+        regpos1_maior(0) when sk>="10" AND M2="00"else
+        regpos1_maior(1) when sk>="10" AND M2="01"else
+        regpos1_maior(2) when sk>="10" AND M2="10"else
+        regpos1_maior(3) when sk>="10" AND M2="11";
+
+pos0_3<=regpos0_menor(0) when sk<"10" AND M3="00"else
+        regpos0_menor(0 when sk<"10" AND M3="01"else)
+        regpos0_menor(2) when sk<"10" AND M3="10"else
+        regpos0_menor(3) when sk<"10" AND M3="11"else
+        regpos1_maior(0) when sk>="10" AND M3="00"else
+        regpos1_maior(1) when sk>="10" AND M3="01"else
+        regpos1_maior(2) when sk>="10" AND M3="10"else
+        regpos1_maior(3) when sk>="10" AND M3="11";
+
+pos0_4<=regpos0_menor(0) when sk<"10" AND M4="00"else
+        regpos0_menor(1) when sk<"10" AND M4="01"else
+        regpos0_menor(2) when sk<"10" AND M4="10"else
+        regpos0_menor(3) when sk<"10" AND M4="11"else
+        regpos1_maior(0) when sk>="10" AND M4="00"else
+        regpos1_maior(1) when sk>="10" AND M4="01"else
+        regpos1_maior(2) when sk>="10" AND M4="10"else
+        regpos1_maior(3) when sk>="10" AND M4="11";
+
+pos0_5<=regpos0_menor(0) when sk<"10" AND M5="00"else
+        regpos0_menor(1) when sk<"10" AND M5="01"else
+        regpos0_menor(2) when sk<"10" AND M5="10"else
+        regpos0_menor(3) when sk<"10" AND M5="11"else
+        regpos1_maior(0) when sk>="10" AND M5="00"else
+        regpos1_maior(1) when sk>="10" AND M5="01"else
+        regpos1_maior(2) when sk>="10" AND M5="10"else
+        regpos1_maior(3) when sk>="10" AND M5="11";
+
+pos0_6<=regpos0_menor(0) when sk<"10" AND M6="00"else
+        regpos0_menor(1) when sk<"10" AND M6="01"else
+        regpos0_menor(2) when sk<"10" AND M6="10"else
+        regpos0_menor(3) when sk<"10" AND M6="11"else
+        regpos1_maior(0) when sk>="10" AND M6="00"else
+        regpos1_maior(1) when sk>="10" AND M6="01"else
+        regpos1_maior(2) when sk>="10" AND M6="10"else
+        regpos1_maior(3) when sk>="10" AND M6="11";
+
+pos0_7<=regpos0_menor(0) when sk<"10" AND M7="00"else
+        regpos0_menor(1) when sk<"10" AND M7="01"else
+        regpos0_menor(2) when sk<"10" AND M7="10"else
+        regpos0_menor(3) when sk<"10" AND M7="11"else
+        regpos1_maior(0) when sk>="10" AND M7="00"else
+        regpos1_maior(1) when sk>="10" AND M7="01"else
+        regpos1_maior(2) when sk>="10" AND M7="10"else
+        regpos1_maior(3) when sk>="10" AND M7="11";
+
+pos0_8<=regpos0_menor(0) when sk<"10" AND M8="00"else
+        regpos0_menor(1) when sk<"10" AND M8="01"else
+        regpos0_menor(2) when sk<"10" AND M8="10"else
+        regpos0_menor(3) when sk<"10" AND M8="11"else
+        regpos1_maior(0) when sk>="10" AND M8="00"else
+        regpos1_maior(1) when sk>="10" AND M8="01"else
+        regpos1_maior(2) when sk>="10" AND M8="10"else
+        regpos1_maior(3) when sk>="10" AND M8="11";
+
+pos0_9<=regpos0_menor(0) when sk<"10" AND M9="00"else
+        regpos0_menor(1) when sk<"10" AND M9="01"else
+        regpos0_menor(2) when sk<"10" AND M9="10"else
+        regpos0_menor(3) when sk<"10" AND M9="11"else
+        regpos1_maior(0) when sk>="10" AND M9="00"else
+        regpos1_maior(1) when sk>="10" AND M9="01"else
+        regpos1_maior(2) when sk>="10" AND M9="10"else
+        regpos1_maior(3) when sk>="10" AND M9="11";
+
+pos0_10<=regpos0_menor(0) when sk<"10" AND M10="00"else
+        regpos0_menor(1) when sk<"10" AND M10="01"else
+        regpos0_menor(2) when sk<"10" AND M10="10"else
+        regpos0_menor(3) when sk<"10" AND M10="11"else
+        regpos1_maior(0) when sk>="10" AND M10="00"else
+        regpos1_maior(1) when sk>="10" AND M10="01"else
+        regpos1_maior(2) when sk>="10" AND M10="10"else
+        regpos1_maior(3) when sk>="10" AND M10="11";
+
+pos0_11<=regpos0_menor(0) when sk<"10" AND M11="00"else
+        regpos0_menor(1) when sk<"10" AND M11="01"else
+        regpos0_menor(2) when sk<"10" AND M11="10"else
+        regpos0_menor(3) when sk<"10" AND M11="11"else
+        regpos1_maior(0) when sk>="10" AND M11="00"else
+        regpos1_maior(1) when sk>="10" AND M11="01"else
+        regpos1_maior(2) when sk>="10" AND M11="10"else
+        regpos1_maior(3) when sk>="10" AND M11="11";
+
+pos0_12<=regpos0_menor(0) when sk<"10" AND M12="00"else
+        regpos0_menor(1) when sk<"10" AND M12="01"else
+        regpos0_menor(2) when sk<"10" AND M12="10"else
+        regpos0_menor(3) when sk<"10" AND M12="11"else
+        regpos1_maior(0) when sk>="10" AND M12="00"else
+        regpos1_maior(1) when sk>="10" AND M12="01"else
+        regpos1_maior(2) when sk>="10" AND M12="10"else
+        regpos1_maior(3) when sk>="10" AND M12="11";
+
+pos0_13<=regpos0_menor(0) when sk<"10" AND M13="00"else
+        regpos0_menor(1) when sk<"10" AND M13="01"else
+        regpos0_menor(2) when sk<"10" AND M13="10"else
+        regpos0_menor(3) when sk<"10" AND M13="11"else
+        regpos1_maior(0) when sk>="10" AND M13="00"else
+        regpos1_maior(1) when sk>="10" AND M13="01"else
+        regpos1_maior(2) when sk>="10" AND M13="10"else
+        regpos1_maior(3) when sk>="10" AND M13="11";
+
+pos0_14<=regpos0_menor(0) when sk<"10" AND M14="00"else
+        regpos0_menor(1) when sk<"10" AND M14="01"else
+        regpos0_menor(2) when sk<"10" AND M14="10"else
+        regpos0_menor(3) when sk<"10" AND M14="11"else
+        regpos1_maior(0) when sk>="10" AND M14="00"else
+        regpos1_maior(1) when sk>="10" AND M14="01"else
+        regpos1_maior(2) when sk>="10" AND M14="10"else
+        regpos1_maior(3) when sk>="10" AND M14="11";
+
+pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
+        regpos0_menor(1) when sk<"10" AND M15="01"else
+        regpos0_menor(2) when sk<"10" AND M15="10"else
+        regpos0_menor(3) when sk<"10" AND M15="11"else
+        regpos1_maior(0) when sk>="10" AND M15="00"else
+        regpos1_maior(1) when sk>="10" AND M15="01"else
+        regpos1_maior(2) when sk>="10" AND M15="10"else
+        regpos1_maior(3) when sk>="10" AND M15="11";
+
+      
+
+
+
+--deck absoluute level
+--HEAR
+deck_abs_level_0 <= pos0_0 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_0
+                    input_ when input_>=pos0_0;
+
+deck_abs_level_1 <= pos0_1 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_1
+                    input_ when input_>=pos0_1;
+                
+deck_abs_level_2 <= pos0_2 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_2
+                    input_ when input_>=pos0_2;
+
+deck_abs_level_3 <= pos0_3 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_3
+                    input_ when input_>=pos0_3;
+
+deck_abs_level_4 <= pos0_4 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_4
+                    input_ when input_>=pos0_4;
+
+deck_abs_level_5 <= pos0_5 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_5
+                    input_ when input_>=pos0_5;                 
+
+deck_abs_level_6 <= pos0_6 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_6
+                    input_ when input_>=pos0_6;
+
+deck_abs_level_7 <= pos0_7 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_7
+                    input_ when input_>=pos0_7;
+
+deck_abs_level_8 <= pos0_8 when input_='0'else 
+                    input_ - '1' when input_<'0' OR input_<=pos0_8
+                    input_ when input_>=pos0_8;
+
+deck_abs_level_9 <= pos0_9 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_9
+                    input_ when input_>=pos0_9;
+
+deck_abs_level_10 <= pos0_10 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_10
+                    input_ when input_>=pos0_10;
+
+deck_abs_level_11 <= pos0_11 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_11
+                    input_ when input_>=pos0_11;
+
+deck_abs_level_12 <= pos0_12 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_12
+                    input_ when input_>=pos0_12;
+
+deck_abs_level_13 <= pos0_13 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_13
+                    input_ when input_>=pos0_13;
+
+deck_abs_level_14 <= pos0_14 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_14
+                    input_ when input_>=pos0_14;
+
+deck_abs_level_15 <= pos0_15 when input_='0'else
+                    input_ - '1' when input_<'0' OR input_<=pos0_15
+                    input_ when input_>=pos0_15;
+                    
+
+
+
+
+
     process(clock, reset)
     begin
         if reset = '1' then
@@ -152,7 +414,7 @@ begin
         
     end process;
         
-     
+
     
 
                 
@@ -169,77 +431,89 @@ begin
     -- 2, 14 ≤ sT < 28,
     -- 3, sT ≥ 28,
     
- 
-    
- 
-    regm(0)<="00" when reg0_neibor<"0000000000000111" else
-            "01" when reg0_neibor>="0000000000000111" and reg0_neibor<"0000000000001110" else
-            "10" when reg0_neibor>="000000000001110" and reg0_neibor<"0000000000011100" else
-            "11";
-    regm(1)<="00" when reg1_neibor<"0000000000000111" else
-            "01" when reg1_neibor>="0000000000000111" and reg1_neibor<"0000000000001110" else
-            "10" when reg1_neibor>="000000000001110" and reg1_neibor<"0000000000011100" else
-            "11";
-    regm(2)<="00" when reg2_neibor<"0000000000000111" else
-            "01" when reg2_neibor>="0000000000000111" and reg2_neibor<"0000000000001110" else
-            "10" when reg2_neibor>="000000000001110" and reg2_neibor<"0000000000011100" else
-            "11";
-    regm(3)<="00" when reg3_neibor<"0000000000000111" else
-            "01" when reg3_neibor>="0000000000000111" and reg3_neibor<"0000000000001110" else
-            "10" when reg3_neibor>="000000000001110" and reg3_neibor<"0000000000011100" else
-            "11";
-    regm(4)<="00" when reg4_neibor<"0000000000000111" else
-            "01" when reg4_neibor>="0000000000000111" and reg4_neibor<"0000000000001110" else
-            "10" when reg4_neibor>="000000000001110" and reg4_neibor<"0000000000011100" else
-            "11";
-    regm(5)<="00" when reg5_neibor<"0000000000000111" else
-            "01" when reg5_neibor>="0000000000000111" and reg5_neibor<"0000000000001110" else
-            "10" when reg5_neibor>="000000000001110" and reg5_neibor<"0000000000011100" else
-            "11";
-    regm(6)<="00" when reg6_neibor<"0000000000000111" else
-            "01" when reg6_neibor>="0000000000000111" and reg6_neibor<"0000000000001110" else
-            "10" when reg6_neibor>="000000000001110" and reg6_neibor<"0000000000011100" else
-            "11";
-    regm(7)<="00" when reg7_neibor<"0000000000000111" else
-            "01" when reg7_neibor>="0000000000000111" and reg7_neibor<"0000000000001110" else
-            "10" when reg7_neibor>="000000000001110" and reg7_neibor<"0000000000011100" else
-            "11";
-    regm(8)<="00" when reg8_neibor<"0000000000000111" else
-            "01" when reg8_neibor>="0000000000000111" and reg8_neibor<"0000000000001110" else
-            "10" when reg8_neibor>="000000000001110" and reg8_neibor<"0000000000011100" else
-            "11";
-    regm(9)<="00" when reg9_neibor<"0000000000000111" else 
-            "01" when reg9_neibor>="0000000000000111" and reg9_neibor<"0000000000001110" else
-            "10" when reg9_neibor>="000000000001110" and reg9_neibor<"0000000000011100" else
-            "11";
-    regm(10)<="00" when reg10_neibor<"0000000000000111" else
-            "01" when reg10_neibor>="0000000000000111" and reg10_neibor<"0000000000001110" else
-            "10" when reg10_neibor>="000000000001110" and reg10_neibor<"0000000000011100" else
-            "11";
-    regm(11)<="00" when reg11_neibor<"0000000000000111" else
-            "01" when reg11_neibor>="0000000000000111" and reg11_neibor<"0000000000001110" else
-            "10" when reg11_neibor>="000000000001110" and reg11_neibor<"0000000000011100" else
-            "11";
-    regm(12)<="00" when reg12_neibor<"0000000000000111" else
-            "01" when reg12_neibor>="0000000000000111" and reg12_neibor<"0000000000001110" else
-            "10" when reg12_neibor>="000000000001110" and reg12_neibor<"0000000000011100" else
-            "11";
-    regm(13)<="00" when reg13_neibor<"0000000000000111" else
-            "01" when reg13_neibor>="0000000000000111" and reg13_neibor<"0000000000001110" else
-            "10" when reg13_neibor>="000000000001110" and reg13_neibor<"0000000000011100" else
-            "11";
-    regm(14)<="00" when reg14_neibor<"0000000000000111" else    
-            "01" when reg14_neibor>="0000000000000111" and reg14_neibor<"0000000000001110" else
-            "10" when reg14_neibor>="000000000001110" and reg14_neibor<"0000000000011100" else
-            "11";
-    regm(15)<="00" when reg15_neibor<"0000000000000111" else   
-            "01" when reg15_neibor>="0000000000000111" and reg15_neibor<"0000000000001110" else
-            "10" when reg15_neibor>="000000000001110" and reg15_neibor<"0000000000011100" else
-            "11";
-   
+M0<='0' when reg0_neibor<"0000000000000111" else
+  '1' when reg0_neibor<="000000000000111" AND reg0_neibor<"0000000000001110" else   
+  "10" when reg0_neibor<="000000000001110" AND reg0_neibor<"0000000000011100" else  
+  "11" when reg0_neibor>="0000000000011100"      
+  
+  
+M1<='0' when reg0_neibor<"0000000000000111" else
+'1' when reg1_neibor<="000000000000111" AND reg1_neibor<"0000000000001110" else   
+"10" when reg1_neibor<="000000000001110" AND reg1_neibor<"0000000000011100" else  
+"11" when reg1_neibor>="0000000000011100"  
 
-        --POS 0
-    pos0_0<="01" when 
-        
- 
+M2<='0' when reg2_neibor<"0000000000000111" else
+'1' when reg2_neibor<="000000000000111" AND reg2_neibor<"0000000000001110" else
+"10" when reg2_neibor<="000000000001110" AND reg2_neibor<"0000000000011100" else
+"11" when reg2_neibor>="0000000000011100" 
+
+M3<='0' when reg3_neibor<"0000000000000111" else
+'1' when reg3_neibor<="000000000000111" AND reg3_neibor<"0000000000001110" else
+"10" when reg3_neibor<="000000000001110" AND reg3_neibor<"0000000000011100" else
+"11" when reg3_neibor>="0000000000011100" 
+
+M4<='0' when reg4_neibor<"0000000000000111" else
+'1' when reg4_neibor<="000000000000111" AND reg4_neibor<"0000000000001110" else
+"10" when reg4_neibor<="000000000001110" AND reg4_neibor<"0000000000011100" else
+"11" when reg4_neibor>="0000000000011100"
+
+M5<='0' when reg5_neibor<"0000000000000111" else
+'1' when reg5_neibor<="000000000000111" AND reg5_neibor<"0000000000001110" else
+"10" when reg5_neibor<="000000000001110" AND reg5_neibor<"0000000000011100" else
+"11" when reg5_neibor>="0000000000011100"
+
+M6<='0' when reg6_neibor<"0000000000000111" else
+'1' when reg6_neibor<="000000000000111" AND reg6_neibor<"0000000000001110" else
+"10" when reg6_neibor<="000000000001110" AND reg6_neibor<"0000000000011100" else
+"11" when reg6_neibor>="0000000000011100"
+
+M7<='0' when reg7_neibor<"0000000000000111" else
+'1' when reg7_neibor<="000000000000111" AND reg7_neibor<"0000000000001110" else
+"10" when reg7_neibor<="000000000001110" AND reg7_neibor<"0000000000011100" else
+"11" when reg7_neibor>="0000000000011100"
+
+M8<='0' when reg8_neibor<"0000000000000111" else
+'1' when reg8_neibor<="000000000000111" AND reg8_neibor<"0000000000001110" else
+"10" when reg8_neibor<="000000000001110" AND reg8_neibor<"0000000000011100" else
+"11" when reg8_neibor>="0000000000011100"
+
+M9<='0' when reg9_neibor<"0000000000000111" else
+'1' when reg9_neibor<="000000000000111" AND reg9_neibor<"0000000000001110" else
+"10" when reg9_neibor<="000000000001110" AND reg9_neibor<"0000000000011100" else
+"11" when reg9_neibor>="0000000000011100"
+
+M10<='0' when reg10_neibor<"0000000000000111" else
+'1' when reg10_neibor<="000000000000111" AND reg10_neibor<"0000000000001110" else
+"10" when reg10_neibor<="000000000001110" AND reg10_neibor<"0000000000011100" else
+"11" when reg10_neibor>="0000000000011100"
+
+M11<='00' when reg11_neibor<"0000000000000111" else
+'01' when reg11_neibor<="000000000000111" AND reg11_neibor<"0000000000001110" else
+"10" when reg11_neibor<="000000000001110" AND reg11_neibor<"0000000000011100" else
+"11" when reg11_neibor>="0000000000011100"
+
+M12<='00' when reg12_neibor<"0000000000000111" else
+'01' when reg12_neibor<="000000000000111" AND reg12_neibor<"0000000000001110" else
+"10" when reg12_neibor<="000000000001110" AND reg12_neibor<"0000000000011100" else
+"11" when reg12_neibor>="0000000000011100"
+
+M13<="00" when reg13_neibor<"0000000000000111" else
+"01" when reg13_neibor<="000000000000111" AND reg13_neibor<"0000000000001110" else
+"10" when reg13_neibor<="000000000001110" AND reg13_neibor<"0000000000011100" else
+"11" when reg13_neibor>="0000000000011100"
+
+M14<="00" when reg14_neibor<"0000000000000111" else
+"01" when reg14_neibor<="000000000000111" AND reg14_neibor<"0000000000001110" else
+"10" when reg14_neibor<="000000000001110" AND reg14_neibor<"0000000000011100" else
+"11" when reg14_neibor>="0000000000011100"
+
+M15<="00" when reg15_neibor<"0000000000000111" else
+"01" when reg15_neibor<="000000000000111" AND reg15_neibor<"0000000000001110" else
+"10" when reg15_neibor<="000000000001110" AND reg15_neibor<"0000000000011100" else
+"11" when reg15_neibor>="0000000000011100"
+
+
+
+
+                
 end Behavioral;
