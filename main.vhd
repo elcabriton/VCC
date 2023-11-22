@@ -17,7 +17,7 @@ end Registradores16Bits;
 
 architecture Behavioral of Registradores16Bits is
         --RERGS QUE PRECISA DE NEIBOR 7,8,9,10,11,12,13,14,15
-
+signal menosum : STD_LOGIC:='1';
             --15 13 10 6 
             --14 11 7 3
             --12 8 4 1
@@ -262,67 +262,67 @@ pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
 --deck absoluute level
 --HEAR
 deck_abs_level_0 <= pos0_0 when entrada="0000"else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_0
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_0
                     entrada when entrada>=pos0_0;
 
 deck_abs_level_1 <= pos0_1 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_1
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_1
                     entrada when entrada>=pos0_1;
                 
 deck_abs_level_2 <= pos0_2 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_2
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_2
                     entrada when entrada>=pos0_2;
 
 deck_abs_level_3 <= pos0_3 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_3
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_3
                     entrada when entrada>=pos0_3;
 
 deck_abs_level_4 <= pos0_4 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_4
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_4
                     entrada when entrada>=pos0_4;
 
 deck_abs_level_5 <= pos0_5 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_5
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_5
                     entrada when entrada>=pos0_5;                 
 
 deck_abs_level_6 <= pos0_6 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_6
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_6
                     entrada when entrada>=pos0_6;
 
 deck_abs_level_7 <= pos0_7 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_7
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_7
                     entrada when entrada>=pos0_7;
 
 deck_abs_level_8 <= pos0_8 when entrada='0'else 
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_8
+                    entrada -menosum when entrada<'0' OR entrada<=pos0_8
                     entrada when entrada>=pos0_8;
 
 deck_abs_level_9 <= pos0_9 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_9
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_9
                     entrada when entrada>=pos0_9;
 
 deck_abs_level_10 <= pos0_10 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_10
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_10
                     entrada when entrada>=pos0_10;
 
 deck_abs_level_11 <= pos0_11 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_11
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_11
                     entrada when entrada>=pos0_11;
 
 deck_abs_level_12 <= pos0_12 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_12
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_12
                     entrada when entrada>=pos0_12;
 
 deck_abs_level_13 <= pos0_13 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_13
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_13
                     entrada when entrada>=pos0_13;
 
 deck_abs_level_14 <= pos0_14 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_14
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_14
                     entrada when entrada>=pos0_14;
 
 deck_abs_level_15 <= pos0_15 when entrada='0'else
-                    entrada - '1' when entrada<'0' OR entrada<=pos0_15
+                    entrada - menosum when entrada<'0' OR entrada<=pos0_15
                     entrada when entrada>=pos0_15;
                     
 
