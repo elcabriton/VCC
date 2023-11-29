@@ -1,0 +1,27 @@
+C:/Users/mchhe/Documents/VCC/main.vhd {2 {vcom -work work -2008 -explicit -stats=none C:/Users/mchhe/Documents/VCC/main.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity main
+-- Compiling architecture Behavioral of main
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(286): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(290): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(294): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(298): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(302): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(306): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(310): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(314): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(318): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(322): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(326): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(330): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(334): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(338): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(342): (vcom-1272) Length of expected is 16; length of actual is 6.
+** Warning: C:/Users/mchhe/Documents/VCC/main.vhd(346): (vcom-1272) Length of expected is 16; length of actual is 6.
+
+} {} {}}

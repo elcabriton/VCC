@@ -4,87 +4,80 @@ use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 use std.textio.ALL;           
 use ieee.std_logic_textio.all;
+use ieee.numeric_std.all; 
 
-entity Registradores16Bits is
-  end Registradores16Bits;
+entity main_tb is
+end main_tb;
 
-
-architecture Behavioral of Registradores16Bits is
+architecture Behavioral of main_tb is
     component main is
-    port(
-    clock, reset : in std_logic;
-    entrada: in std_logic_vector(15 downto 0);
-    
-    sk : in STD_LOGIC_VECTOR(1 downto 0);
-    escolha: in STD_LOGIC_VECTOR(3 downto 0)
-    );
+        port (
+            clock, reset : in std_logic;
+            entrada : in std_logic_vector(15 downto 0);
+            sk : in std_logic_vector(1 downto 0);
+            escolha : in std_logic_vector(3 downto 0)
+        );
     end component;
 
-signal clock  : std_logic;
-signal reset  : std_logic;
-signal entrada : std_logic_vector(15 downto 0);
-signal sk : STD_LOGIC_VECTOR(1 downto 0);
-signal escolha:STD_LOGIC_VECTOR(3 downto 0);
+    signal clock  : std_logic := '0';
+    signal reset  : std_logic := '0';
+    signal entrada : std_logic_vector(15 downto 0);
+    signal sk : std_logic_vector(1 downto 0):= "00";
+    signal escolha : std_logic_vector(3 downto 0) := "0000";
+    signal count : integer range 0 to 15 := 0;
+	
 
--- converte de string para std_logic_vector
-function str_to_stdvec(inp: string) return std_logic_vector is
-	variable temp: std_logic_vector(inp'range);
-	begin
-		for i in inp'range loop--loop de 0 até o tamanho da string
-			if (inp(i) = '1') then--se o caractere for 1
-				temp(i) := '1';--atribui 1 ao vetor
-			elsif (inp(i) = '0') then--se o caractere for 0
-				temp(i) := '0';--atribui 0 ao vetor
-			end if;
-		end loop;
-	return temp;
-end function str_to_stdvec;
---para ler o escolha
-
+    function str_to_stdvec(inp: string) return std_logic_vector is
+        variable temp: std_logic_vector(inp'range);
+    begin
+        for i in inp'range loop
+            if (inp(i) = '1') then
+                temp(i) := '1';
+            elsif (inp(i) = '0') then
+                temp(i) := '0';
+            end if;
+        end loop;
+        return temp;
+    end function str_to_stdvec;
 
 begin
-inst_top: main
-port map
-(
-clock => clock,
-reset => reset,
-entrada => entrada,
-escolha => escolha,
-sk => sk
-);
-clock <= not clock after 4 ns; 
+	inst_top : main 
+	port map (
+		clock => clock,
+		reset => reset,
+		entrada => entrada,
+		escolha => escolha,
+		sk => sk
+	);
+	clock <= not clock after 5 ns;
+	sk<="10" after 70 ns;
+    process(clock)
+    begin
+        if rising_edge(clock) then
+            if count <= 15 then
+                count <= count + 1;
+                
+            end if;
+        end if;
+    end process;
+	escolha <= std_logic_vector(to_unsigned(count, escolha'length));
 
+    file_read : process 
+        file file_org : text;
+        variable original_line : line;
+        variable org_str : string(16 downto 1);
+    begin
+        file_open(file_org, "C:/Users/mchhe/Documents/VCC/entrada.txt", READ_MODE);
+        wait for 8 ns;
+        
+        while not endfile(file_org) loop
+            readline(file_org, original_line);
+            read(original_line, org_str);
+            entrada <= str_to_stdvec(org_str);
+			wait for 16 ns;
+        end loop;
+    end process;
 
-file_read:process 
-	
-		file  		file_org: text;
-		variable    original_line: line;
-		variable    org_str: string(16 downto 1);
-		---variable	entrada_1_v : std_logic_vector(7 downto 0);
-		begin
-
-		
-		FILE_OPEN(file_org, "entrada.txt", READ_MODE);
-		wait for 8 ns;
-		 -- enable <= '1';
-	    while not endfile(file_org) loop--loop até o fim do arquivo
-	    	-- entrada 1
-	    	readline(file_org, original_line);--lê uma linha do arquivo
-	    	read(original_line, org_str);
-	   		escolha <= str_to_stdvec(org_str);--converte a string para std_logic_vector
-	   	
-	   	end loop;
-       
-      FILE_OPEN(file_org, "escolha.txt", READ_MODE);
-       wait for 8 ns;
-        -- enable <= '1';
-         while not endfile(file_org) loop--loop até o fim do arquivo
-           -- entrada 1
-           readline(file_org, original_line);--lê uma linha do arquivo
-           read(original_line, org_str);
-            escolha <= str_to_stdvec(org_str);--converte a string para std_logic_vector
-          
-          end loop;
-end process;	 
+  
+    
 end Behavioral;
-
