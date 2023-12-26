@@ -131,6 +131,24 @@ regpos1_maior(3) <= "010000";
 
 
 
+validador0<=entrada - 1;
+validador1<=entrada - 1;
+validador2<=entrada - 1;
+validador3<=entrada - 1;
+validador4<=entrada - 1;
+validador5<=entrada - 1;
+validador6<=entrada - 1;
+validador7<=entrada - 1;
+validador8<=entrada - 1;
+validador9<=entrada - 1;
+validador10<=entrada - 1;
+validador11<=entrada - 1;
+validador12<=entrada - 1;
+validador13<=entrada - 1;
+validador14<=entrada - 1;
+validador15<=entrada - 1;
+
+
 
 
 pos0_0<=regpos0_menor(0) when sk<"10" AND M0="00"else
@@ -140,7 +158,7 @@ pos0_0<=regpos0_menor(0) when sk<"10" AND M0="00"else
         regpos1_maior(0) when sk>="10" AND M0="00"else
         regpos1_maior(1) when sk>="10" AND M0="01"else
         regpos1_maior(2) when sk>="10" AND M0="10"else
-        regpos1_maior(3) when sk>="10" AND M0="11";
+        regpos1_maior(3) ;
 
 pos0_1<=regpos0_menor(0) when sk<"10" AND M1="00"else
         regpos0_menor(1) when sk<"10" AND M1="01"else
@@ -149,7 +167,7 @@ pos0_1<=regpos0_menor(0) when sk<"10" AND M1="00"else
         regpos1_maior(0) when sk>="10" AND M1="00"else
         regpos1_maior(1) when sk>="10" AND M1="01"else
         regpos1_maior(2) when sk>="10" AND M1="10"else
-        regpos1_maior(3) when sk>="10" AND M1="11";
+        regpos1_maior(3);
 
 pos0_2<=regpos0_menor(0) when sk<"10" AND M2="00"else
         regpos0_menor(1) when sk<"10" AND M2="01"else
@@ -158,7 +176,7 @@ pos0_2<=regpos0_menor(0) when sk<"10" AND M2="00"else
         regpos1_maior(0) when sk>="10" AND M2="00"else
         regpos1_maior(1) when sk>="10" AND M2="01"else
         regpos1_maior(2) when sk>="10" AND M2="10"else
-        regpos1_maior(3) when sk>="10" AND M2="11";
+        regpos1_maior(3) ;
 
 pos0_3<=regpos0_menor(0) when sk<"10" AND M3="00"else
         regpos0_menor(1) when sk<"10" AND M3="01"else
@@ -167,7 +185,7 @@ pos0_3<=regpos0_menor(0) when sk<"10" AND M3="00"else
         regpos1_maior(0) when sk>="10" AND M3="00"else
         regpos1_maior(1) when sk>="10" AND M3="01"else
         regpos1_maior(2) when sk>="10" AND M3="10"else
-        regpos1_maior(3) when sk>="10" AND M3="11";
+        regpos1_maior(3) ;
 
 pos0_4<=regpos0_menor(0) when sk<"10" AND M4="00"else
         regpos0_menor(1) when sk<"10" AND M4="01"else
@@ -176,7 +194,7 @@ pos0_4<=regpos0_menor(0) when sk<"10" AND M4="00"else
         regpos1_maior(0) when sk>="10" AND M4="00"else
         regpos1_maior(1) when sk>="10" AND M4="01"else
         regpos1_maior(2) when sk>="10" AND M4="10"else
-        regpos1_maior(3) when sk>="10" AND M4="11";
+        regpos1_maior(3) ;
 
 pos0_5<=regpos0_menor(0) when sk<"10" AND M5="00"else
         regpos0_menor(1) when sk<"10" AND M5="01"else
@@ -185,7 +203,7 @@ pos0_5<=regpos0_menor(0) when sk<"10" AND M5="00"else
         regpos1_maior(0) when sk>="10" AND M5="00"else
         regpos1_maior(1) when sk>="10" AND M5="01"else
         regpos1_maior(2) when sk>="10" AND M5="10"else
-        regpos1_maior(3) when sk>="10" AND M5="11";
+        regpos1_maior(3) ;
 
 pos0_6<=regpos0_menor(0) when sk<"10" AND M6="00"else
         regpos0_menor(1) when sk<"10" AND M6="01"else
@@ -194,7 +212,7 @@ pos0_6<=regpos0_menor(0) when sk<"10" AND M6="00"else
         regpos1_maior(0) when sk>="10" AND M6="00"else
         regpos1_maior(1) when sk>="10" AND M6="01"else
         regpos1_maior(2) when sk>="10" AND M6="10"else
-        regpos1_maior(3) when sk>="10" AND M6="11";
+        regpos1_maior(3) ;
 
 pos0_7<=regpos0_menor(0) when sk<"10" AND M7="00"else
         regpos0_menor(1) when sk<"10" AND M7="01"else
@@ -203,7 +221,7 @@ pos0_7<=regpos0_menor(0) when sk<"10" AND M7="00"else
         regpos1_maior(0) when sk>="10" AND M7="00"else
         regpos1_maior(1) when sk>="10" AND M7="01"else
         regpos1_maior(2) when sk>="10" AND M7="10"else
-        regpos1_maior(3) when sk>="10" AND M7="11";
+        regpos1_maior(3) ;
 
 pos0_8<=regpos0_menor(0) when sk<"10" AND M8="00"else
         regpos0_menor(1) when sk<"10" AND M8="01"else
@@ -212,7 +230,7 @@ pos0_8<=regpos0_menor(0) when sk<"10" AND M8="00"else
         regpos1_maior(0) when sk>="10" AND M8="00"else
         regpos1_maior(1) when sk>="10" AND M8="01"else
         regpos1_maior(2) when sk>="10" AND M8="10"else
-        regpos1_maior(3) when sk>="10" AND M8="11";
+        regpos1_maior(3) ;
 
 pos0_9<=regpos0_menor(0) when sk<"10" AND M9="00"else
         regpos0_menor(1) when sk<"10" AND M9="01"else
@@ -221,7 +239,7 @@ pos0_9<=regpos0_menor(0) when sk<"10" AND M9="00"else
         regpos1_maior(0) when sk>="10" AND M9="00"else
         regpos1_maior(1) when sk>="10" AND M9="01"else
         regpos1_maior(2) when sk>="10" AND M9="10"else
-        regpos1_maior(3) when sk>="10" AND M9="11";
+        regpos1_maior(3) ;
 
 pos0_10<=regpos0_menor(0) when sk<"10" AND M10="00"else
         regpos0_menor(1) when sk<"10" AND M10="01"else
@@ -230,7 +248,7 @@ pos0_10<=regpos0_menor(0) when sk<"10" AND M10="00"else
         regpos1_maior(0) when sk>="10" AND M10="00"else
         regpos1_maior(1) when sk>="10" AND M10="01"else
         regpos1_maior(2) when sk>="10" AND M10="10"else
-        regpos1_maior(3) when sk>="10" AND M10="11";
+        regpos1_maior(3) ;
 
 pos0_11<=regpos0_menor(0) when sk<"10" AND M11="00"else
         regpos0_menor(1) when sk<"10" AND M11="01"else
@@ -239,7 +257,7 @@ pos0_11<=regpos0_menor(0) when sk<"10" AND M11="00"else
         regpos1_maior(0) when sk>="10" AND M11="00"else
         regpos1_maior(1) when sk>="10" AND M11="01"else
         regpos1_maior(2) when sk>="10" AND M11="10"else
-        regpos1_maior(3) when sk>="10" AND M11="11";
+        regpos1_maior(3) ;
 
 pos0_12<=regpos0_menor(0) when sk<"10" AND M12="00"else
         regpos0_menor(1) when sk<"10" AND M12="01"else
@@ -248,7 +266,7 @@ pos0_12<=regpos0_menor(0) when sk<"10" AND M12="00"else
         regpos1_maior(0) when sk>="10" AND M12="00"else
         regpos1_maior(1) when sk>="10" AND M12="01"else
         regpos1_maior(2) when sk>="10" AND M12="10"else
-        regpos1_maior(3) when sk>="10" AND M12="11";
+        regpos1_maior(3) ;
 
 pos0_13<=regpos0_menor(0) when sk<"10" AND M13="00"else
         regpos0_menor(1) when sk<"10" AND M13="01"else
@@ -257,7 +275,7 @@ pos0_13<=regpos0_menor(0) when sk<"10" AND M13="00"else
         regpos1_maior(0) when sk>="10" AND M13="00"else
         regpos1_maior(1) when sk>="10" AND M13="01"else
         regpos1_maior(2) when sk>="10" AND M13="10"else
-        regpos1_maior(3) when sk>="10" AND M13="11";
+        regpos1_maior(3);
 
 pos0_14<=regpos0_menor(0) when sk<"10" AND M14="00"else
         regpos0_menor(1) when sk<"10" AND M14="01"else
@@ -266,7 +284,7 @@ pos0_14<=regpos0_menor(0) when sk<"10" AND M14="00"else
         regpos1_maior(0) when sk>="10" AND M14="00"else
         regpos1_maior(1) when sk>="10" AND M14="01"else
         regpos1_maior(2) when sk>="10" AND M14="10"else
-        regpos1_maior(3) when sk>="10" AND M14="11";
+        regpos1_maior(3) ;
 
 pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
         regpos0_menor(1) when sk<"10" AND M15="01"else
@@ -275,7 +293,7 @@ pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
         regpos1_maior(0) when sk>="10" AND M15="00"else
         regpos1_maior(1) when sk>="10" AND M15="01"else
         regpos1_maior(2) when sk>="10" AND M15="10"else
-        regpos1_maior(3) when sk>="10" AND M15="11";
+        regpos1_maior(3) ;
 
       
 
@@ -284,68 +302,68 @@ pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
 --deck absoluute level
 --HEAR
 deck_abs_level_0 <= pos0_0 when entrada="0000000000000000" else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_0 else
-                    entrada when entrada>=pos0_0;
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_0 else
+                    entrada;
 
 deck_abs_level_1 <= pos0_1 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_1 else
-                    entrada when entrada>=pos0_1;
+                    validador1 when entrada>"0000000000000000" AND entrada<=pos0_1 else
+                    entrada;
                 
 deck_abs_level_2 <= pos0_2 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_2 else
-                    entrada when entrada>=pos0_2;
+                    validador2 when entrada>"0000000000000000" AND entrada<=pos0_2 else
+                    entrada;
 
 deck_abs_level_3 <= pos0_3 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_3 else
-                    entrada when entrada>=pos0_3;
+                    validador3 when entrada>"0000000000000000" AND entrada<=pos0_3 else
+                    entrada ;
 
 deck_abs_level_4 <= pos0_4 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_4 else
-                    entrada when entrada>=pos0_4;
+                    validador4 when entrada>"0000000000000000" AND entrada<=pos0_4 else
+                    entrada;
 
 deck_abs_level_5 <= pos0_5 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_5 else
-                    entrada when entrada>=pos0_5;                 
+                    validador5 when entrada>"0000000000000000" AND entrada<=pos0_5 else
+                    entrada ;                
 
 deck_abs_level_6 <= pos0_6 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_6 else
-                    entrada when entrada>=pos0_6;
+                    validador6 when entrada>"0000000000000000" AND entrada<=pos0_6 else
+                    entrada ;
 
 deck_abs_level_7 <= pos0_7 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_7 else
-                    entrada when entrada>=pos0_7;
+                    validador7 when entrada>"0000000000000000" AND entrada<=pos0_7 else
+                    entrada ;
 
 deck_abs_level_8 <= pos0_8 when entrada="0000000000000000"else 
-                    entrada -menosum when entrada>"0000000000000000" AND entrada<=pos0_8 else
-                    entrada when entrada>=pos0_8;
+                    validador8 when entrada>"0000000000000000" AND entrada<=pos0_8 else
+                    entrada ;
 
 deck_abs_level_9 <= pos0_9 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_9 else
-                    entrada when entrada>=pos0_9;
+                    validador9 when entrada>"0000000000000000" AND entrada<=pos0_9 else
+                    entrada;
 
 deck_abs_level_10 <= pos0_10 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_10 else
-                    entrada when entrada>=pos0_10;
+                    validador10 when entrada>"0000000000000000" AND entrada<=pos0_10 else
+                    entrada;
 
 deck_abs_level_11 <= pos0_11 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_11 else
-                    entrada when entrada>=pos0_11;
+                    validador11 when entrada>"0000000000000000" AND entrada<=pos0_11 else
+                    entrada ;
 
 deck_abs_level_12 <= pos0_12 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_12 else
-                    entrada when entrada>=pos0_12;
+                    validador12 when entrada>"0000000000000000" AND entrada<=pos0_12 else
+                    entrada ;
 
 deck_abs_level_13 <= pos0_13 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_13 else
-                    entrada when entrada>=pos0_13;
+                    validador13 when entrada>"0000000000000000" AND entrada<=pos0_13 else
+                    entrada ;
 
 deck_abs_level_14 <= pos0_14 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_14 else 
-                    entrada when entrada>=pos0_14;
+                    validador14 when entrada>"0000000000000000" AND entrada<=pos0_14 else 
+                    entrada ;
 
 deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
-                    entrada - menosum when entrada>"0000000000000000" AND entrada<=pos0_15 else
-                    entrada when entrada>=pos0_15;
+                     validador15 when entrada>"0000000000000000" AND entrada<=pos0_15 else
+                    entrada ;
 
 
                     
@@ -362,9 +380,27 @@ deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
         --14 11 7 3
         --12 8 4 1
         --9 5 2 0
-        if rising_edge(clock) then
+        if (reset='1') then
+            reg0_neibor <= "0000000000000000";
+            reg1_neibor <= "0000000000000000";
+            reg2_neibor <= "0000000000000000";
+            reg3_neibor <= "0000000000000000";
+            reg4_neibor <= "0000000000000000";
+            reg5_neibor <= "0000000000000000";
+            reg6_neibor <= "0000000000000000";
+            reg7_neibor <= "0000000000000000";
+            reg8_neibor <= "0000000000000000";
+            reg9_neibor <= "0000000000000000";
+            reg10_neibor <= "0000000000000000";
+            reg11_neibor <= "0000000000000000";
+            reg12_neibor <= "0000000000000000";
+            reg13_neibor <= "0000000000000000";
+            reg14_neibor <= "0000000000000000";
+            reg15_neibor <= "0000000000000000";
+
+            elsif (rising_edge(clock)) then
             if escolha ="0000" then
-                reg0_neibor <= reg0_neibor+entrada;
+                reg0_neibor <= reg0_neibor;
             end if;
             if escolha="0000" then
                 reg1_neibor <= reg1_neibor+entrada;
@@ -443,83 +479,83 @@ deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
 M0<="00" when reg0_neibor>"0000000000000111" else
   "01" when reg0_neibor>="000000000000111" AND reg0_neibor<"0000000000001110" else   
   "10" when reg0_neibor>="000000000001110" AND reg0_neibor<"0000000000011100" else  
-  "11" when reg0_neibor>="0000000000011100"  ;    
+  "11";    
   
   
 M1<="00" when reg0_neibor>"0000000000000111" else
 "01" when reg1_neibor>="000000000000111" AND reg1_neibor<"0000000000001110" else   
 "10" when reg1_neibor>="000000000001110" AND reg1_neibor<"0000000000011100" else  
-"11" when reg1_neibor>="0000000000011100" ; 
+"11"  ; 
 
 M2<="00"when reg2_neibor>"0000000000000111" else
 "01" when reg2_neibor>="000000000000111" AND reg2_neibor<"0000000000001110" else
 "10" when reg2_neibor>="000000000001110" AND reg2_neibor<"0000000000011100" else
-"11" when reg2_neibor>="0000000000011100" ;
+"11" ;
 
 M3<="00"when reg3_neibor<"0000000000000111" else
 "01" when reg3_neibor>="000000000000111" AND reg3_neibor<"0000000000001110" else
 "10" when reg3_neibor>="000000000001110" AND reg3_neibor<"0000000000011100" else
-"11" when reg3_neibor>="0000000000011100" ;
+"11" ;
 
 M4<="00" when reg4_neibor<"0000000000000111" else
 "01" when reg4_neibor>="000000000000111" AND reg4_neibor<"0000000000001110" else
 "10" when reg4_neibor>="000000000001110" AND reg4_neibor<"0000000000011100" else
-"11" when reg4_neibor>="0000000000011100";
+"11" ;
 
 M5<="00" when reg5_neibor<"0000000000000111" else
 "01" when reg5_neibor>="000000000000111" AND reg5_neibor<"0000000000001110" else
 "10" when reg5_neibor>="000000000001110" AND reg5_neibor<"0000000000011100" else
-"11" when reg5_neibor>="0000000000011100";
+"11" ;
 
 M6<="00" when reg6_neibor<"0000000000000111" else
 "01" when reg6_neibor>="000000000000111" AND reg6_neibor<"0000000000001110" else
 "10" when reg6_neibor>="000000000001110" AND reg6_neibor<"0000000000011100" else
-"11" when reg6_neibor>="0000000000011100";
+"11" ;
 
 M7<="00" when reg7_neibor<"0000000000000111" else
 "01" when reg7_neibor>="000000000000111" AND reg7_neibor<"0000000000001110" else
 "10" when reg7_neibor>="000000000001110" AND reg7_neibor<"0000000000011100" else
-"11" when reg7_neibor>="0000000000011100";
+"11" ;
 
 M8<="00" when reg8_neibor<"0000000000000111" else
 "01" when reg8_neibor>="000000000000111" AND reg8_neibor<"0000000000001110" else
 "10" when reg8_neibor>="000000000001110" AND reg8_neibor<"0000000000011100" else
-"11" when reg8_neibor>="0000000000011100";
+"11" ;
 
 M9<="00" when reg9_neibor<"0000000000000111" else
 "01" when reg9_neibor>="000000000000111" AND reg9_neibor<"0000000000001110" else
 "10" when reg9_neibor>="000000000001110" AND reg9_neibor<"0000000000011100" else
-"11" when reg9_neibor>="0000000000011100";
+"11" ;
 
 M10<="00" when reg10_neibor<"0000000000000111" else
 "01" when reg10_neibor>="000000000000111" AND reg10_neibor<"0000000000001110" else
 "10" when reg10_neibor>="000000000001110" AND reg10_neibor<"0000000000011100" else
-"11" when reg10_neibor>="0000000000011100";
+"11" ;
 
 M11<="00" when reg11_neibor<"0000000000000111" else
 "01" when reg11_neibor>="000000000000111" AND reg11_neibor<"0000000000001110" else
 "10" when reg11_neibor>="000000000001110" AND reg11_neibor<"0000000000011100" else
-"11" when reg11_neibor>="0000000000011100";
+"11" ;
 
 M12<="00" when reg12_neibor<"0000000000000111" else
 "01" when reg12_neibor>="000000000000111" AND reg12_neibor<"0000000000001110" else
 "10" when reg12_neibor>="000000000001110" AND reg12_neibor<"0000000000011100" else
-"11" when reg12_neibor>="0000000000011100";
+"11" ;
 
 M13<="00" when reg13_neibor<"0000000000000111" else
 "01" when reg13_neibor>="000000000000111" AND reg13_neibor<"0000000000001110" else
 "10" when reg13_neibor>="000000000001110" AND reg13_neibor<"0000000000011100" else
-"11" when reg13_neibor>="0000000000011100";
+"11" ;
 
 M14<="00" when reg14_neibor<"0000000000000111" else
 "01" when reg14_neibor>="000000000000111" AND reg14_neibor<"0000000000001110" else
 "10" when reg14_neibor>="000000000001110" AND reg14_neibor<"0000000000011100" else
-"11" when reg14_neibor>="0000000000011100";
+"11" ;
 
 M15<="00" when reg15_neibor<"0000000000000111" else
 "01" when reg15_neibor>="000000000000111" AND reg15_neibor<"0000000000001110" else
 "10" when reg15_neibor>="000000000001110" AND reg15_neibor<"0000000000011100" else
-"11" when reg15_neibor>="0000000000011100";
+"11" ;
 
 
 
