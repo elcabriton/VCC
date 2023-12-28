@@ -94,22 +94,8 @@ signal menosum : STD_LOGIC:='1';
     signal deck_abs_level_14 : STD_LOGIC_VECTOR(15 downto 0);
     signal deck_abs_level_15 : STD_LOGIC_VECTOR(15 downto 0);
 
-    signal validador0: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador1: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador2: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador3: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador4: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador5: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador6: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador7: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador8: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador9: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador10: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador11: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador12: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador13: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador14: STD_LOGIC_VECTOR(15 downto 0);
-    signal validador15: STD_LOGIC_VECTOR(15 downto 0);
+    signal validador0: STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
+    
 
 
 
@@ -132,21 +118,7 @@ regpos1_maior(3) <= "010000";
 
 
 validador0<=entrada - 1;
-validador1<=entrada - 1;
-validador2<=entrada - 1;
-validador3<=entrada - 1;
-validador4<=entrada - 1;
-validador5<=entrada - 1;
-validador6<=entrada - 1;
-validador7<=entrada - 1;
-validador8<=entrada - 1;
-validador9<=entrada - 1;
-validador10<=entrada - 1;
-validador11<=entrada - 1;
-validador12<=entrada - 1;
-validador13<=entrada - 1;
-validador14<=entrada - 1;
-validador15<=entrada - 1;
+
 
 
 
@@ -306,63 +278,63 @@ deck_abs_level_0 <= pos0_0 when entrada="0000000000000000" else
                     entrada;
 
 deck_abs_level_1 <= pos0_1 when entrada="0000000000000000"else
-                    validador1 when entrada>"0000000000000000" AND entrada<=pos0_1 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_1 else
                     entrada;
                 
 deck_abs_level_2 <= pos0_2 when entrada="0000000000000000"else
-                    validador2 when entrada>"0000000000000000" AND entrada<=pos0_2 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_2 else
                     entrada;
 
 deck_abs_level_3 <= pos0_3 when entrada="0000000000000000"else
-                    validador3 when entrada>"0000000000000000" AND entrada<=pos0_3 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_3 else
                     entrada ;
 
 deck_abs_level_4 <= pos0_4 when entrada="0000000000000000"else
-                    validador4 when entrada>"0000000000000000" AND entrada<=pos0_4 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_4 else
                     entrada;
 
 deck_abs_level_5 <= pos0_5 when entrada="0000000000000000"else
-                    validador5 when entrada>"0000000000000000" AND entrada<=pos0_5 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_5 else
                     entrada ;                
 
 deck_abs_level_6 <= pos0_6 when entrada="0000000000000000"else
-                    validador6 when entrada>"0000000000000000" AND entrada<=pos0_6 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_6 else
                     entrada ;
 
 deck_abs_level_7 <= pos0_7 when entrada="0000000000000000"else
-                    validador7 when entrada>"0000000000000000" AND entrada<=pos0_7 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_7 else
                     entrada ;
 
 deck_abs_level_8 <= pos0_8 when entrada="0000000000000000"else 
-                    validador8 when entrada>"0000000000000000" AND entrada<=pos0_8 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_8 else
                     entrada ;
 
 deck_abs_level_9 <= pos0_9 when entrada="0000000000000000"else
-                    validador9 when entrada>"0000000000000000" AND entrada<=pos0_9 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_9 else
                     entrada;
 
 deck_abs_level_10 <= pos0_10 when entrada="0000000000000000"else
-                    validador10 when entrada>"0000000000000000" AND entrada<=pos0_10 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_10 else
                     entrada;
 
 deck_abs_level_11 <= pos0_11 when entrada="0000000000000000"else
-                    validador11 when entrada>"0000000000000000" AND entrada<=pos0_11 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_11 else
                     entrada ;
 
 deck_abs_level_12 <= pos0_12 when entrada="0000000000000000"else
-                    validador12 when entrada>"0000000000000000" AND entrada<=pos0_12 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_12 else
                     entrada ;
 
 deck_abs_level_13 <= pos0_13 when entrada="0000000000000000"else
-                    validador13 when entrada>"0000000000000000" AND entrada<=pos0_13 else
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_13 else
                     entrada ;
 
 deck_abs_level_14 <= pos0_14 when entrada="0000000000000000"else
-                    validador14 when entrada>"0000000000000000" AND entrada<=pos0_14 else 
+                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_14 else 
                     entrada ;
 
 deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
-                     validador15 when entrada>"0000000000000000" AND entrada<=pos0_15 else
+                     validador0  when entrada>"0000000000000000" AND entrada<=pos0_15 else
                     entrada ;
 
 

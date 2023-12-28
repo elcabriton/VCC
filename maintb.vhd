@@ -74,7 +74,7 @@ begin
             readline(file_org, original_line);
             read(original_line, org_str);
             entrada <= str_to_stdvec(org_str);
-			wait for 16 ns;
+			
         end loop;
     end process;
 
