@@ -59,22 +59,22 @@ signal menosum : STD_LOGIC:='1';
     signal M15 : STD_LOGIC_VECTOR(1 downto 0);    
 
     --POS0
-    signal pos0_0: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_1: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_2: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_3: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_4: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_5: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_6: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_7: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_8: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_9: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_10: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_11: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_12: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_13: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_14: STD_LOGIC_VECTOR(5 downto 0);
-    signal pos0_15: STD_LOGIC_VECTOR(5 downto 0);
+    signal pos0_0: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_1: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_2: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_3: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_4: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_5: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_6: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_7: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_8: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_9: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_10: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_11: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_12: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_13: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_14: STD_LOGIC_VECTOR(15 downto 0);
+    signal pos0_15: STD_LOGIC_VECTOR(15 downto 0);
 
     --deck absoluute level
     signal deck_abs_level_0 : STD_LOGIC_VECTOR(15 downto 0);
@@ -99,25 +99,25 @@ signal menosum : STD_LOGIC:='1';
 
 
 
-    type pos0_minor is array (0 to 3) of std_logic_vector(5 downto 0);
+    type pos0_minor is array (0 to 3) of std_logic_vector(15 downto 0);
     signal regpos0_menor : pos0_minor;
     signal regpos1_maior : pos0_minor;
 
 
 begin   
-regpos0_menor(0) <= "000001";
-regpos0_menor(1) <= "000010";
-regpos0_menor(2) <= "000100";
-regpos0_menor(3) <= "001000";
+regpos0_menor(0) <= "0000000000000001";
+regpos0_menor(1) <= "0000000000000010";
+regpos0_menor(2) <= "0000000000000100";
+regpos0_menor(3) <= "0000000000001000";
 
-regpos1_maior(0) <= "000010";
-regpos1_maior(1) <= "000100";
-regpos1_maior(2) <= "001000";
-regpos1_maior(3) <= "010000";
+regpos1_maior(0) <= "0000000000000010";
+regpos1_maior(1) <= "0000000000000100";
+regpos1_maior(2) <= "0000000000001000";
+regpos1_maior(3) <= "0000000000010000";
 
 
 
-validador0<=entrada - 1;
+validador0<=entrada - "0000000000000001";
 
 
 

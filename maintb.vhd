@@ -51,16 +51,15 @@ begin
 	);
 	clock <= not clock after 5 ns;
 	sk<="10" after 70 ns;
-    process(clock)
+    process
     begin
-        if rising_edge(clock) then
-            if count <= 15 then
-                count <= count + 1;
-                
-            end if;
-        end if;
-    end process;
-	escolha <= std_logic_vector(to_unsigned(count, escolha'length));
+    wait for 10 ns;
+    escolha <= "0001";
+    wait for 10 ns;
+    escolha <= "0111";
+    wait;
+end process;
+	
 
     file_read : process 
         file file_org : text;
@@ -74,7 +73,7 @@ begin
             readline(file_org, original_line);
             read(original_line, org_str);
             entrada <= str_to_stdvec(org_str);
-			
+			wait for 16 ns;
         end loop;
     end process;
 
