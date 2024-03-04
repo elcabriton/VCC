@@ -21,7 +21,7 @@ architecture Behavioral of main_tb is
 
     signal clock  : std_logic := '0';
     signal reset  : std_logic := '0';
-    signal entrada : std_logic_vector(15 downto 0);
+    signal entrada : std_logic_vector(15 downto 0):= "0000000000000000";
     signal sk : std_logic_vector(1 downto 0):= "00";
     signal escolha : std_logic_vector(3 downto 0) := "0000";
     signal count : integer range 0 to 15 := 0;
@@ -50,14 +50,56 @@ begin
 		sk => sk
 	);
 	clock <= not clock after 5 ns;
-	sk<="10" after 70 ns;
+	-- sk<="11" after 70 ns;
+    PROCESS 
+    begin 
+    wait for 5 ns;
+    reset <= '1';
+    wait for 10 ns;
+    reset <= '0';
+    wait;
+    end process;
     process
     begin
+    wait for 5 ns;
+    
+    sk <= "00";
+    wait for 10 ns;
+    
+    escolha <= "0000";
     wait for 10 ns;
     escolha <= "0001";
+   
+    wait for 10 ns;
+    escolha <= "0010";
+    wait for 10 ns;
+    escolha <= "0011";
+   
+    wait for 10 ns;
+    escolha <= "0100";
+    wait for 10 ns;
+    escolha <= "0101";
+    wait for 10 ns;
+    escolha <= "0110";
     wait for 10 ns;
     escolha <= "0111";
-    wait;
+    wait for 10 ns;
+    escolha <= "1000";
+    wait for 10 ns;
+    escolha <= "1001";
+    wait for 10 ns;
+    escolha <= "1010";
+    wait for 10 ns;
+    escolha <= "1011";
+    wait for 10 ns;
+    escolha <= "1100";
+    wait for 10 ns;
+    escolha <= "1101";
+    wait for 10 ns;
+    escolha <= "1110";
+    wait for 10 ns;
+    escolha <= "1111";
+    wait for 10 ns;
 end process;
 	
 
@@ -67,13 +109,13 @@ end process;
         variable org_str : string(16 downto 1);
     begin
         file_open(file_org, "C:/Users/mchhe/Documents/VCC/entrada.txt", READ_MODE);
-        wait for 8 ns;
+        wait for 4 ns;
         
         while not endfile(file_org) loop
             readline(file_org, original_line);
             read(original_line, org_str);
             entrada <= str_to_stdvec(org_str);
-			wait for 16 ns;
+			wait for 9 ns;
         end loop;
     end process;
 

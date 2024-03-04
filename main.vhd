@@ -22,22 +22,23 @@ signal menosum : STD_LOGIC:='1';
             --14 11 7 3
             --12 8 4 1
             --9 5 2 0
-    signal reg0_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg1_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg2_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg3_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg4_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg5_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg6_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg7_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg8_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg9_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg10_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg11_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg12_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
-    signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
+            --zerar no reset 
+    signal reg0_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg1_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg2_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg3_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg4_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg5_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg6_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg7_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg8_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg9_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg10_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg11_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg12_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0);
+    signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0);
     
 
     -- regs dos M
@@ -105,15 +106,15 @@ signal menosum : STD_LOGIC:='1';
 
 
 begin   
-regpos0_menor(0) <= "0000000000000001";
-regpos0_menor(1) <= "0000000000000010";
-regpos0_menor(2) <= "0000000000000100";
-regpos0_menor(3) <= "0000000000001000";
+regpos0_menor(0) <= "0000000000000001";--1
+regpos0_menor(1) <= "0000000000000010";--2
+regpos0_menor(2) <= "0000000000000100";--4
+regpos0_menor(3) <= "0000000000001000";--8
 
-regpos1_maior(0) <= "0000000000000010";
-regpos1_maior(1) <= "0000000000000100";
-regpos1_maior(2) <= "0000000000001000";
-regpos1_maior(3) <= "0000000000010000";
+regpos1_maior(0) <= "0000000000000010";--2
+regpos1_maior(1) <= "0000000000000100";--4
+regpos1_maior(2) <= "0000000000001000";--   8
+regpos1_maior(3) <= "0000000000010000";--16
 
 
 
@@ -123,7 +124,7 @@ validador0<=entrada - "0000000000000001";
 
 
 
-pos0_0<=regpos0_menor(0) when sk<"10" AND M0="00"else
+pos0_0<=regpos0_menor(0) when sk<"10" AND M0="00"else-- 
         regpos0_menor(1) when sk<"10" AND M0="01"else
         regpos0_menor(2) when sk<"10" AND M0="10"else
         regpos0_menor(3) when sk<"10" AND M0="11"else
@@ -274,67 +275,67 @@ pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
 --deck absoluute level
 --HEAR
 deck_abs_level_0 <= pos0_0 when entrada="0000000000000000" else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_0 else
-                    entrada;
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_0 else
+                    entrada;--entrada>pos9
 
 deck_abs_level_1 <= pos0_1 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_1 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_1 else
                     entrada;
                 
 deck_abs_level_2 <= pos0_2 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_2 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_2 else
                     entrada;
 
 deck_abs_level_3 <= pos0_3 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_3 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_3 else
                     entrada ;
 
 deck_abs_level_4 <= pos0_4 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_4 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_4 else
                     entrada;
 
 deck_abs_level_5 <= pos0_5 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_5 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_5 else
                     entrada ;                
 
 deck_abs_level_6 <= pos0_6 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_6 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_6 else
                     entrada ;
 
 deck_abs_level_7 <= pos0_7 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_7 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_7 else
                     entrada ;
 
 deck_abs_level_8 <= pos0_8 when entrada="0000000000000000"else 
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_8 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_8 else
                     entrada ;
 
 deck_abs_level_9 <= pos0_9 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_9 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_9 else
                     entrada;
 
 deck_abs_level_10 <= pos0_10 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_10 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_10 else
                     entrada;
 
 deck_abs_level_11 <= pos0_11 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_11 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_11 else
                     entrada ;
 
 deck_abs_level_12 <= pos0_12 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_12 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_12 else
                     entrada ;
 
 deck_abs_level_13 <= pos0_13 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_13 else
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_13 else
                     entrada ;
 
 deck_abs_level_14 <= pos0_14 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" AND entrada<=pos0_14 else 
+                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_14 else 
                     entrada ;
 
 deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
-                     validador0  when entrada>"0000000000000000" AND entrada<=pos0_15 else
+                     validador0  when entrada>"0000000000000000" OR entrada<=pos0_15 else
                     entrada ;
 
 
@@ -369,6 +370,10 @@ deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
             reg13_neibor <= "0000000000000000";
             reg14_neibor <= "0000000000000000";
             reg15_neibor <= "0000000000000000";
+
+            
+
+
 
             elsif (rising_edge(clock)) then
             if escolha ="0000" then
@@ -448,18 +453,18 @@ deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
     -- 2, 14 ≤ sT < 28,
     -- 3, sT ≥ 28,
     
-M0<="00" when reg0_neibor>"0000000000000111" else
-  "01" when reg0_neibor>="000000000000111" AND reg0_neibor<"0000000000001110" else   
-  "10" when reg0_neibor>="000000000001110" AND reg0_neibor<"0000000000011100" else  
+M0<="00" when reg0_neibor<"0000000000000111" else--7
+  "01" when reg0_neibor>="000000000000111" AND reg0_neibor<"0000000000001110" else  -- 7 a <14 
+  "10" when reg0_neibor>="000000000001110" AND reg0_neibor<"0000000000011100" else  -- 14 a 28
   "11";    
   
   
-M1<="00" when reg0_neibor>"0000000000000111" else
+M1<="00" when reg1_neibor<"0000000000000111" else
 "01" when reg1_neibor>="000000000000111" AND reg1_neibor<"0000000000001110" else   
 "10" when reg1_neibor>="000000000001110" AND reg1_neibor<"0000000000011100" else  
 "11"  ; 
 
-M2<="00"when reg2_neibor>"0000000000000111" else
+M2<="00"when reg2_neibor<"0000000000000111" else
 "01" when reg2_neibor>="000000000000111" AND reg2_neibor<"0000000000001110" else
 "10" when reg2_neibor>="000000000001110" AND reg2_neibor<"0000000000011100" else
 "11" ;
