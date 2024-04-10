@@ -1,7 +1,7 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use ieee.std_logic_1164.all;  
+use ieee.std_logic_signed.all;
+use ieee.std_logic_arith.all; 
 
 entity main is
     Port (
@@ -9,8 +9,23 @@ entity main is
         reset : in STD_LOGIC;
         --valores para o neighboor
         escolha: in STD_LOGIC_VECTOR(3 downto 0);
-        entrada : in STD_LOGIC_VECTOR(15 downto 0);--valor para atribuir a aqueles regs que precisam de neibor
-       
+        coeff : in STD_LOGIC_VECTOR(15 downto 0);--valor para atribuir a aqueles regs que precisam de neibor
+        deck_abs_level_0  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_1  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_2  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_3  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_4  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_5  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_6  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_7  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_8  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_9  : out  STD_LOGIC_VECTOR(15 downto 0); 
+        deck_abs_level_10 : out   STD_LOGIC_VECTOR(15 downto 0);
+        deck_abs_level_11 : out   STD_LOGIC_VECTOR(15 downto 0);
+        deck_abs_level_12 : out   STD_LOGIC_VECTOR(15 downto 0);
+        deck_abs_level_13 : out   STD_LOGIC_VECTOR(15 downto 0);
+        deck_abs_level_14 : out   STD_LOGIC_VECTOR(15 downto 0);
+        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);         
         sk : in STD_LOGIC_VECTOR(1 downto 0)
     );
 end main;
@@ -78,22 +93,22 @@ signal menosum : STD_LOGIC:='1';
     signal pos0_15: STD_LOGIC_VECTOR(15 downto 0);
 
     --deck absoluute level
-    signal deck_abs_level_0 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_1 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_2 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_3 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_4 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_5 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_6 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_7 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_8 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_9 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_10 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_11 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_12 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_13 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_14 : STD_LOGIC_VECTOR(15 downto 0);
-    signal deck_abs_level_15 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_0 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_1 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_2 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_3 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_4 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_5 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_6 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_7 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_8 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_9 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_10 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_11 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_12 : STD_LOGIC_VECTOR(15 downto 0);
+  --  signal deck_abs_level_13 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_14 : STD_LOGIC_VECTOR(15 downto 0);
+   -- signal deck_abs_level_15 : STD_LOGIC_VECTOR(15 downto 0);
 
     signal validador0: STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
     
@@ -118,7 +133,7 @@ regpos1_maior(3) <= "0000000000010000";--16
 
 
 
-validador0<=entrada - "0000000000000001";
+validador0<=coeff - "0000000000000001";
 
 
 
@@ -274,69 +289,69 @@ pos0_15<=regpos0_menor(0) when sk<"10" AND M15="00"else
 
 --deck absoluute level
 --HEAR
-deck_abs_level_0 <= pos0_0 when entrada="0000000000000000" else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_0 else
-                    entrada;--entrada>pos9
+deck_abs_level_0 <= pos0_0 when coeff="0000000000000000" else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_0 else
+                    coeff;--coeff>pos9
 
-deck_abs_level_1 <= pos0_1 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_1 else
-                    entrada;
+deck_abs_level_1 <= pos0_1 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_1 else
+                    coeff;
                 
-deck_abs_level_2 <= pos0_2 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_2 else
-                    entrada;
+deck_abs_level_2 <= pos0_2 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_2 else
+                    coeff;
 
-deck_abs_level_3 <= pos0_3 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_3 else
-                    entrada ;
+deck_abs_level_3 <= pos0_3 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_3 else
+                    coeff ;
 
-deck_abs_level_4 <= pos0_4 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_4 else
-                    entrada;
+deck_abs_level_4 <= pos0_4 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_4 else
+                    coeff;
 
-deck_abs_level_5 <= pos0_5 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_5 else
-                    entrada ;                
+deck_abs_level_5 <= pos0_5 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_5 else
+                    coeff ;                
 
-deck_abs_level_6 <= pos0_6 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_6 else
-                    entrada ;
+deck_abs_level_6 <= pos0_6 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_6 else
+                    coeff ;
 
-deck_abs_level_7 <= pos0_7 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_7 else
-                    entrada ;
+deck_abs_level_7 <= pos0_7 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_7 else
+                    coeff ;
 
-deck_abs_level_8 <= pos0_8 when entrada="0000000000000000"else 
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_8 else
-                    entrada ;
+deck_abs_level_8 <= pos0_8 when coeff="0000000000000000"else 
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_8 else
+                    coeff ;
 
-deck_abs_level_9 <= pos0_9 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_9 else
-                    entrada;
+deck_abs_level_9 <= pos0_9 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_9 else
+                    coeff;
 
-deck_abs_level_10 <= pos0_10 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_10 else
-                    entrada;
+deck_abs_level_10 <= pos0_10 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_10 else
+                    coeff;
 
-deck_abs_level_11 <= pos0_11 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_11 else
-                    entrada ;
+deck_abs_level_11 <= pos0_11 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_11 else
+                    coeff ;
 
-deck_abs_level_12 <= pos0_12 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_12 else
-                    entrada ;
+deck_abs_level_12 <= pos0_12 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_12 else
+                    coeff ;
 
-deck_abs_level_13 <= pos0_13 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_13 else
-                    entrada ;
+deck_abs_level_13 <= pos0_13 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_13 else
+                    coeff ;
 
-deck_abs_level_14 <= pos0_14 when entrada="0000000000000000"else
-                    validador0 when entrada>"0000000000000000" OR entrada<=pos0_14 else 
-                    entrada ;
+deck_abs_level_14 <= pos0_14 when coeff="0000000000000000"else
+                    validador0 when coeff>"0000000000000000" OR coeff<=pos0_14 else 
+                    coeff ;
 
-deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
-                     validador0  when entrada>"0000000000000000" OR entrada<=pos0_15 else
-                    entrada ;
+deck_abs_level_15 <= pos0_15 when coeff="0000000000000000"else
+                     validador0  when coeff>"0000000000000000" OR coeff<=pos0_15 else
+                    coeff ;
 
 
                     
@@ -380,54 +395,54 @@ deck_abs_level_15 <= pos0_15 when entrada="0000000000000000"else
                 reg0_neibor <= reg0_neibor;
             end if;
             if escolha="0000" then
-                reg1_neibor <= reg1_neibor+entrada;
+                reg1_neibor <= reg1_neibor+coeff;
             end if;
             if escolha="0000" then
-                reg2_neibor <= reg2_neibor+entrada;
+                reg2_neibor <= reg2_neibor+coeff;
             end if;
             if escolha="0000" or escolha="0001" then
-                reg3_neibor <= reg3_neibor+entrada;
+                reg3_neibor <= reg3_neibor+coeff;
             end if;
             if escolha="0001" or escolha="0010" or escolha="0000" then
-                reg4_neibor <= reg4_neibor+entrada;
+                reg4_neibor <= reg4_neibor+coeff;
             end if;
             if escolha="0010" or escolha="0000" then
-                reg5_neibor <= reg5_neibor+entrada;
+                reg5_neibor <= reg5_neibor+coeff;
             end if;
             if escolha="0011" or escolha="0001" then
-                reg6_neibor <= reg6_neibor+entrada;
+                reg6_neibor <= reg6_neibor+coeff;
             end if;
             if escolha="0011" or escolha="0100" or escolha="0001" or escolha="0010" then
-                reg7_neibor <= reg7_neibor+entrada;
+                reg7_neibor <= reg7_neibor+coeff;
             end if;
             if escolha="0100" or escolha="0010" or escolha="0101" or escolha="0001"then
-                reg8_neibor <= reg8_neibor+entrada;
+                reg8_neibor <= reg8_neibor+coeff;
 
             end if;
             if escolha="0101" or escolha="0010" then
-                reg9_neibor <= reg9_neibor+entrada;
+                reg9_neibor <= reg9_neibor+coeff;
             end if;
         --15 13 10 6 
         --14 11 7 3
         --12 8 4 1
         --9 5 2 0
             if escolha="0110" or escolha="0011" or escolha="0111" or escolha="0100" then
-                reg10_neibor <= reg10_neibor+entrada;
+                reg10_neibor <= reg10_neibor+coeff;
             end if;
             if escolha="0111" or escolha="0100" or escolha="0101" or escolha="1000" or escolha="0011" then
-                reg11_neibor <= reg11_neibor+entrada;
+                reg11_neibor <= reg11_neibor+coeff;
             end if;
             if escolha="1000" or escolha="0100" or escolha="0101" or escolha="1001" then
-                reg12_neibor <= reg12_neibor+entrada;
+                reg12_neibor <= reg12_neibor+coeff;
             end if;
             if escolha="1011" or escolha="0111" or escolha="0110" or escolha="1010" or escolha="0111" or escolha="1000" then 
-                reg13_neibor <= reg13_neibor+entrada;
+                reg13_neibor <= reg13_neibor+coeff;
             end if;
             if escolha="1011" or escolha="0111" or escolha="1000" or escolha="1100" or escolha="1001" then
-                reg14_neibor <= reg14_neibor+entrada;
+                reg14_neibor <= reg14_neibor+coeff;
             end if;
             if escolha="1101" or escolha="1010" or escolha="1011" or escolha="1110" or escolha="1100" then
-                reg15_neibor <= reg15_neibor+entrada;
+                reg15_neibor <= reg15_neibor+coeff;
             end if;
         end if;
 

@@ -1,2 +1,0 @@
-# VCC
-Trabalho de pesquisa
