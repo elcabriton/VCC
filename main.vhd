@@ -25,7 +25,25 @@ entity main is
         deck_abs_level_12 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_13 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_14 : out   STD_LOGIC_VECTOR(15 downto 0);
-        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);         
+        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);  ]
+        
+        reg0_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+
         sk : in STD_LOGIC_VECTOR(1 downto 0)
     );
 end main;
@@ -38,22 +56,7 @@ signal menosum : STD_LOGIC:='1';
             --12 8 4 1
             --9 5 2 0
             --zerar no reset 
-    signal reg0_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg1_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg2_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg3_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg4_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg5_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg6_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg7_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg8_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg9_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg10_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg11_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg12_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0);
-    signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0);
+ 
     
 
     -- regs dos M

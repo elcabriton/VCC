@@ -25,30 +25,58 @@ entity transformskip is
         deck_abs_level_12 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_13 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_14 : out   STD_LOGIC_VECTOR(15 downto 0);
-        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);         
+        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);
+        
+        reg0_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+
+
+
+
+        --other saida dos neibors
+
+
+
+
+        reg0_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+
+
+
         sk : in STD_LOGIC_VECTOR(1 downto 0)
     );
 end transformskip;
 architecture Behavioral of transformskip is
    
 signal menosum : STD_LOGIC:='1';
-
-signal reg0_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg1_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg2_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg3_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg4_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg5_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg6_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg7_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg8_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg9_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg10_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg11_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg12_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg14_neibor : STD_LOGIC_VECTOR(15 downto 0);
-signal reg15_neibor : STD_LOGIC_VECTOR(15 downto 0);
 
 signal M0 : STD_LOGIC_VECTOR(1 downto 0):="01";-- SEMPRE IGUAL A 1
 
@@ -77,10 +105,30 @@ signal regpos1_maior : pos0_minor;
     signal validador0: STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
 begin
     
-    regpos0_menor(0) <= "0000000000000010";--2
-    regpos1_maior(0) <= "0000000000000100";--4
+    regpos0_menor <= "0000000000000010";--2
+    regpos1_maior <= "0000000000000100";--4
    
     validador0<=coeff - "0000000000000001";
+    reg0_neibor_out2 <= reg0_neibor ;
+    reg1_neibor_out2 <= reg1_neibor ;
+    reg2_neibor_out2 <= reg2_neibor ;
+    reg3_neibor_out2 <= reg3_neibor ;
+    reg4_neibor_out2 <= reg4_neibor ;
+    reg5_neibor_out2 <= reg5_neibor ;
+    reg6_neibor_out2 <= reg6_neibor ;
+    reg7_neibor_out2 <= reg7_neibor ;
+    reg8_neibor_out2 <= reg8_neibor ;
+    reg9_neibor_out2 <= reg9_neibor ;
+    reg10_neibor_out2<= reg10_neibor;
+    reg11_neibor_out2<= reg11_neibor;
+    reg12_neibor_out2<= reg12_neibor;
+    reg13_neibor_out2<= reg13_neibor;
+    reg14_neibor_out2<= reg14_neibor;
+    reg15_neibor_out2<= reg15_neibor;
+
+
+
+
 
 
 
@@ -161,40 +209,40 @@ begin
       end if;
 end process;
 
-pos0_0<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
+pos0_0<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
 
 pos0_1<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
 
-pos0_2<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_3<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_4<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_5<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_6<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_7<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_8<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_9<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_10<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_11<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_12<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_13<=regpos0_menor(1) when sk<"10" AND M0="01"else  
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_14<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
-pos0_15<=regpos0_menor(1) when sk<"10" AND M0="01"else
-        regpos1_maior(1) when sk>="10" AND M0="01"else
+pos0_2<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_3<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_4<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_5<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_6<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_7<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_8<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_9<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_10<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_11<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_12<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_13<=regpos0_menor when sk<"10" AND M0="01"else  
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_14<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
+pos0_15<=regpos0_menor when sk<"10" AND M0="01"else
+        regpos1_maior(1) when sk>="10" AND M0="01"
        
                 
         deck_abs_level_0 <= pos0_0 when coeff="0000000000000000" else
