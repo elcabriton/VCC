@@ -26,6 +26,41 @@ Port (
         remabslevel:out std_logic_vector(15 downto 0);        
         Q :out std_logic_vector(6 downto 0); -- Sa?da Q        
         parity: out std_logic;
+        reg0_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor : out STD_LOGIC_VECTOR(15 downto 0);
+
+
+        reg0_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+
         deck_abs_level_0  : out  STD_LOGIC_VECTOR(15 downto 0);     
         deck_abs_level_1  : out  STD_LOGIC_VECTOR(15 downto 0);     
         deck_abs_level_2  : out  STD_LOGIC_VECTOR(15 downto 0);     
@@ -55,7 +90,42 @@ Port (
       signal gt2_sg:std_logic:='0';
       signal signpattern_sg:std_logic:='0';
       signal parity_sg:std_logic:='0';
+
       signal q_sg:std_logic_vector(6 downto 0):=7D"0";
+      SIGNAL reg0_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg1_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg2_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg3_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg4_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg5_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg6_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg7_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg8_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg9_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg10_neibor : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg11_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg12_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg13_neibor : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg14_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg15_neibor :  STD_LOGIC_VECTOR(15 downto 0);
+
+      SIGNAL reg0_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg1_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg2_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg3_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg4_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg5_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg6_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg7_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg8_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg9_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg10_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg11_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg12_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg13_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg14_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+      SIGNAL reg15_neibor_out2 : STD_LOGIC_VECTOR(15 downto 0);
+
       signal  deck_abs_level_0_sg :STD_LOGIC_VECTOR(15 downto 0);
       signal  deck_abs_level_1_sg :STD_LOGIC_VECTOR(15 downto 0);
       signal  deck_abs_level_2_sg :STD_LOGIC_VECTOR(15 downto 0);
@@ -118,6 +188,39 @@ inst_topo: topo
         Q => q_sg,
         parity => parity_sg,
         sk => sk ,
+        reg0_neibor => reg0_neibor,
+        reg1_neibor => reg1_neibor,
+        reg2_neibor => reg2_neibor,
+        reg3_neibor => reg3_neibor,
+        reg4_neibor => reg4_neibor,
+        reg5_neibor => reg5_neibor,
+        reg6_neibor => reg6_neibor,
+        reg7_neibor => reg7_neibor,
+        reg8_neibor => reg8_neibor,
+        reg9_neibor => reg9_neibor,
+        reg10_neibor => reg10_neibor,
+        reg11_neibor => reg11_neibor,
+        reg12_neibor => reg12_neibor,
+        reg13_neibor => reg13_neibor,
+        reg14_neibor => reg14_neibor,
+        reg15_neibor => reg15_neibor,
+        reg0_neibor_out2 => reg0_neibor_out2,
+        reg1_neibor_out2 => reg1_neibor_out2,
+        reg2_neibor_out2 => reg2_neibor_out2,
+        reg3_neibor_out2 => reg3_neibor_out2,
+        reg4_neibor_out2 => reg4_neibor_out2,
+        reg5_neibor_out2 => reg5_neibor_out2,
+        reg6_neibor_out2 => reg6_neibor_out2,
+        reg7_neibor_out2 => reg7_neibor_out2,
+        reg8_neibor_out2 => reg8_neibor_out2,
+        reg9_neibor_out2 => reg9_neibor_out2,
+        reg10_neibor_out2 => reg10_neibor_out2,
+        reg11_neibor_out2 => reg11_neibor_out2,
+        reg12_neibor_out2 => reg12_neibor_out2,
+        reg13_neibor_out2 => reg13_neibor_out2,
+        reg14_neibor_out2 => reg14_neibor_out2,
+        reg15_neibor_out2 => reg15_neibor_out2,
+        
         deck_abs_level_0   => deck_abs_level_0_sg   ,
         deck_abs_level_1   => deck_abs_level_1_sg   ,
         deck_abs_level_2   => deck_abs_level_2_sg   ,
@@ -201,7 +304,7 @@ process
           variable original_line : line;                                             
           variable org_str : string(16 downto 1);                                    
       begin                                                                          
-          file_open(file_org, "C:\Users\gabri\Downloads\NEWVVC\NEWVVC\entrada.txt", READ_MODE);
+          file_open(file_org, "C:\Users\elcabriton\Documents\NEWVVC\entrada.txt", READ_MODE);
           wait for 10 ns;                                                             
                                                                                      
           while not endfile(file_org) loop                                           

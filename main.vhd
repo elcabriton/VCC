@@ -25,7 +25,7 @@ entity main is
         deck_abs_level_12 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_13 : out   STD_LOGIC_VECTOR(15 downto 0);
         deck_abs_level_14 : out   STD_LOGIC_VECTOR(15 downto 0);
-        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);  ]
+        deck_abs_level_15 : out   STD_LOGIC_VECTOR(15 downto 0);  
         
         reg0_neibor : out STD_LOGIC_VECTOR(15 downto 0);
         reg1_neibor : out STD_LOGIC_VECTOR(15 downto 0);
@@ -44,7 +44,26 @@ entity main is
         reg14_neibor : out STD_LOGIC_VECTOR(15 downto 0);
         reg15_neibor : out STD_LOGIC_VECTOR(15 downto 0);
 
-        sk : in STD_LOGIC_VECTOR(1 downto 0)
+        sk : in STD_LOGIC_VECTOR(1 downto 0);
+
+        reg0_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg1_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg2_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg3_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg4_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg5_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg6_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg7_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg8_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg9_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg10_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg11_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg12_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg13_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg14_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0);
+        reg15_neibor_out2 : out STD_LOGIC_VECTOR(15 downto 0)
+        
+        
     );
 end main;
 
@@ -95,23 +114,7 @@ signal menosum : STD_LOGIC:='1';
     signal pos0_14: STD_LOGIC_VECTOR(15 downto 0);
     signal pos0_15: STD_LOGIC_VECTOR(15 downto 0);
 
-    --deck absoluute level
-  --  signal deck_abs_level_0 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_1 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_2 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_3 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_4 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_5 : STD_LOGIC_VECTOR(15 downto 0);
-  --  signal deck_abs_level_6 : STD_LOGIC_VECTOR(15 downto 0);
-  --  signal deck_abs_level_7 : STD_LOGIC_VECTOR(15 downto 0);
-  --  signal deck_abs_level_8 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_9 : STD_LOGIC_VECTOR(15 downto 0);
-  --  signal deck_abs_level_10 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_11 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_12 : STD_LOGIC_VECTOR(15 downto 0);
-  --  signal deck_abs_level_13 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_14 : STD_LOGIC_VECTOR(15 downto 0);
-   -- signal deck_abs_level_15 : STD_LOGIC_VECTOR(15 downto 0);
+
 
     signal validador0: STD_LOGIC_VECTOR(15 downto 0):="0000000000000000";
     
@@ -139,6 +142,22 @@ regpos1_maior(3) <= "0000000000010000";--16
 validador0<=coeff - "0000000000000001";
 
 
+reg0_neibor_out2<=reg0_neibor;
+reg1_neibor_out2<=reg1_neibor;
+reg2_neibor_out2<=reg2_neibor;
+reg3_neibor_out2<=reg3_neibor;
+reg4_neibor_out2<=reg4_neibor;
+reg5_neibor_out2<=reg5_neibor;
+reg6_neibor_out2<=reg6_neibor;
+reg7_neibor_out2<=reg7_neibor;
+reg8_neibor_out2<=reg8_neibor;
+reg9_neibor_out2<=reg9_neibor;
+reg10_neibor_out2<=reg10_neibor;
+reg11_neibor_out2<=reg11_neibor;
+reg12_neibor_out2<=reg12_neibor;
+reg13_neibor_out2<=reg13_neibor;
+reg14_neibor_out2<=reg14_neibor;
+reg15_neibor_out2<=reg15_neibor;
 
 
 
